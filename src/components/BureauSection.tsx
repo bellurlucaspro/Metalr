@@ -285,37 +285,36 @@ export function BureauSection() {
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex flex-col md:flex-row rounded-2xl overflow-hidden w-full max-w-4xl"
-            style={{ maxHeight: "90vh", boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}
+            className="relative flex flex-col md:flex-row rounded-2xl overflow-y-auto w-full max-w-4xl"
+            style={{ maxHeight: "85vh", boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close */}
+            {/* Close — sticky so always visible */}
             <button
               onClick={() => setShowVideoModal(false)}
-              className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full flex items-center justify-center"
-              style={{ background: "rgba(0,0,0,0.55)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.1)" }}
+              className="absolute top-3 right-3 z-20 w-8 h-8 rounded-full flex items-center justify-center"
+              style={{ background: "rgba(0,0,0,0.7)", backdropFilter: "blur(8px)", border: "1px solid rgba(255,255,255,0.2)", position: "sticky" }}
               onMouseEnter={e => (e.currentTarget.style.background = "#E40714")}
-              onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.55)")}
+              onMouseLeave={e => (e.currentTarget.style.background = "rgba(0,0,0,0.7)")}
             >
-              <X size={15} color="white" />
+              <X size={14} color="white" />
             </button>
 
             {/* Video */}
-            <div style={{ background: "#000", flexShrink: 0, display: "flex", justifyContent: "center" }} className="w-full md:w-auto">
+            <div style={{ background: "#000", flexShrink: 0 }} className="w-full md:w-auto">
               <video
                 src="/images/WhatsApp Video 2026-02-04 at 19.18.47.mp4"
                 controls
                 autoPlay
                 playsInline
-                className="w-full md:w-auto"
-                style={{ maxHeight: "60vh", display: "block", objectFit: "contain" }}
+                style={{ width: "100%", display: "block" }}
               />
             </div>
 
             {/* Info panel — below on mobile, right on desktop */}
             <div
               className="flex flex-col justify-between w-full md:w-[300px]"
-              style={{ padding: "24px 20px", background: "#151515", flexShrink: 0 }}
+              style={{ padding: "20px 16px", background: "#151515", flexShrink: 0 }}
             >
               {/* Logo + titre */}
               <div>
