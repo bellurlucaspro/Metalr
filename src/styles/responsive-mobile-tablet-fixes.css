@@ -1,0 +1,1359 @@
+/* ==========================================================================
+   METALR — Mobile & Tablet Responsive Fixes
+   ===========================================================================
+   RULE: Desktop rendering is NEVER modified.
+   - Only @media (max-width: 767px) and @media (min-width: 768px) and (max-width: 1024px)
+   - !important is used ONLY to override inline style={{}} props (highest specificity)
+   - No component file (JSX/TSX) is modified
+   ========================================================================== */
+
+/* ==========================================================================
+   MOBILE — max-width: 767px
+   ========================================================================== */
+@media (max-width: 767px) {
+
+  /* ---------- GLOBAL TYPOGRAPHY ---------- */
+
+  /* All page hero h1 (fontSize 56–72 inline) */
+  .pt-32 > section:first-of-type h1,
+  .pt-32.pb-20 > section:first-of-type h1 {
+    font-size: 32px !important;
+    letter-spacing: -0.01em !important;
+  }
+
+  /* AboutPage hero — specific wrapper */
+  .overflow-hidden.bg-white.pt-32 h1 {
+    font-size: 30px !important;
+  }
+
+  /* ---------- HOMEPAGE COMPONENTS ---------- */
+
+  /* #hero — HeroSection */
+  #hero h1 {
+    font-size: 32px !important;
+  }
+
+  /* #bureau — BureauSection */
+  #bureau h2 {
+    font-size: 32px !important;
+  }
+  #bureau > div > div[style*="height: 500px"],
+  #bureau > div > div[style*="height:500px"] {
+    height: 250px !important;
+  }
+  /* Bureau grid — already lg:grid-cols-2, stacks on mobile via Tailwind */
+
+  /* Bureau video modal — stack vertically on mobile */
+  #bureau .fixed.inset-0 {
+    padding: 0 !important;
+    z-index: 99999 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+  /* Close button — fixed in top-right corner of the overlay, always visible */
+  #bureau .fixed.inset-0 > .relative.flex > button:has(svg) {
+    position: fixed !important;
+    top: 12px !important;
+    right: 12px !important;
+    z-index: 100000 !important;
+  }
+  /* Elevate #bureau stacking context when modal is open */
+  #bureau:has(.fixed.inset-0) {
+    z-index: 99999 !important;
+    position: relative !important;
+  }
+  /* Modal container: column layout, natural height */
+  #bureau .fixed.inset-0 > .relative.flex {
+    flex-direction: column !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 0 !important;
+  }
+  /* Video element: fixed aspect ratio */
+  #bureau .fixed.inset-0 video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 55vh !important;
+    object-fit: contain !important;
+    display: block !important;
+  }
+  /* Info side panel — full width, flows naturally */
+  #bureau [style*="width: 300"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex-shrink: 0 !important;
+    padding: 20px 20px 24px !important;
+    max-height: none !important;
+    overflow: visible !important;
+  }
+  /* Info panel title */
+  #bureau [style*="width: 300"] h3 {
+    font-size: 17px !important;
+    margin-bottom: 8px !important;
+  }
+  /* Info panel stats grid */
+  #bureau [style*="width: 300"] [style*="grid-template-columns: 1fr 1fr"] {
+    gap: 8px !important;
+    margin: 16px 0 !important;
+  }
+  /* Info panel logo */
+  #bureau [style*="width: 300"] img[style*="height: 28"] {
+    height: 22px !important;
+    margin-bottom: 16px !important;
+  }
+
+  /* #contact — ContactSection */
+  #contact h2 {
+    font-size: 28px !important;
+  }
+
+  /* #expertise — ExpertiseSection */
+  #expertise .text-\[42px\] {
+    font-size: 28px !important;
+  }
+  /* Expertise cards: reduce padding */
+  #expertise [style*="padding: 44px 48px"] {
+    padding: 20px 16px 24px !important;
+  }
+  #expertise [style*="44px 48px 48px"] {
+    padding: 20px 16px 24px !important;
+  }
+  /* Expertise arrow CTA — reposition on mobile */
+  #expertise a[style*="position: absolute"][style*="top: 32"] {
+    top: 20px !important;
+    right: 16px !important;
+  }
+  /* Expertise h3 title — shrink + leave room for the arrow button */
+  #expertise h3[style*="font-size: 36"] {
+    font-size: 24px !important;
+    padding-right: 52px !important;
+  }
+  /* Expertise bullet grid: stack instead of 4-col */
+  #expertise [style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr !important;
+    padding-left: 0 !important;
+  }
+  /* Expertise image: remove left margin, reduce height */
+  #expertise [style*="margin-left: 60"] {
+    margin-left: 0 !important;
+  }
+  #expertise img[style*="height: 380"] {
+    height: 220px !important;
+  }
+  /* Expertise step number width */
+  #expertise [style*="width: 60"] {
+    width: 40px !important;
+  }
+  /* Expertise card sticky offset — tighter on mobile */
+  #expertise .relative[style*="sticky"] {
+    top: 64px !important;
+  }
+
+  /* #realisations — ProjectsSection */
+  #realisations h2 {
+    font-size: 32px !important;
+  }
+  /* Project card heights (400, 350, 450 inline) */
+  #realisations [style*="height: 400"],
+  #realisations [style*="height: 350"],
+  #realisations [style*="height: 450"] {
+    height: 240px !important;
+  }
+
+  /* ---------- SECTIONS WITHOUT IDS ---------- */
+
+  /* KeyStatsSection, ProcessSection, GoogleReviewsSection — padding: "96px 0" */
+  section[style*="padding: 96px"] {
+    padding: 40px 0 !important;
+  }
+
+  /* KeyStatsSection — h2 fontSize: 42 */
+  section[style*="padding: 96px"] h2[style*="font-size: 42"] {
+    font-size: 26px !important;
+  }
+
+  /* Stat numbers — fontSize: 52 */
+  [style*="font-size: 52px"] {
+    font-size: 34px !important;
+  }
+  /* Stat card padding */
+  [style*="padding: 36px 28px"] {
+    padding: 20px 16px !important;
+  }
+
+  /* Section header margins (margin-bottom: 56–64px) */
+  [style*="margin-bottom: 56px"],
+  [style*="margin-bottom: 64px"] {
+    margin-bottom: 28px !important;
+  }
+
+  /* ProcessSection — step circles and icons */
+  [style*="width: 72"][style*="height: 72"] {
+    width: 56px !important;
+    height: 56px !important;
+  }
+  [style*="width: 52"][style*="height: 52"] {
+    width: 40px !important;
+    height: 40px !important;
+  }
+
+  /* MapSection */
+  .py-24.px-6 h2[style*="font-size: 64"],
+  section h2[style*="font-size: 64px"] {
+    font-size: 30px !important;
+  }
+  /* Map modal */
+  .fixed [style*="padding: 40px"],
+  .fixed [style*="p-10"] {
+    padding: 20px !important;
+  }
+
+  /* GoogleReviewsSection — review cards */
+  [style*="padding: 28"][style*="border-radius: 16"] {
+    padding: 16px !important;
+    overflow: hidden !important;
+  }
+
+  /* Review grid — force 1 column, prevent overflow */
+  [style*="minmax(280px"] {
+    grid-template-columns: 1fr !important;
+  }
+  [style*="auto-fit"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Review author name — prevent long names from overflowing */
+  [style*="border-radius: 16"] [style*="gap: 12"] {
+    overflow: hidden !important;
+  }
+  [style*="border-radius: 16"] [style*="gap: 12"] span,
+  [style*="border-radius: 16"] [style*="gap: 12"] div:not([style*="border-radius: 50%"]) {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+    min-width: 0 !important;
+  }
+
+  /* CertificationsSection — card padding */
+  [style*="padding: 36px 28px"][style*="border-radius: 20px"] {
+    padding: 20px 16px !important;
+  }
+
+  /* CertificationsSection — second row (3 cards): wrap and full-width on mobile */
+  .flex.justify-center.gap-8.mt-8 {
+    flex-wrap: wrap !important;
+    gap: 16px !important;
+  }
+  .flex.justify-center.gap-8.mt-8 > div {
+    width: 100% !important;
+  }
+
+  /* ---------- ABOUT PAGE ---------- */
+
+  /* About hero — add horizontal margin so rounded corners don't touch screen edges */
+  .overflow-hidden.bg-white.pt-32 > .relative.h-\[100vh\].rounded-3xl {
+    margin-left: 12px !important;
+    margin-right: 12px !important;
+    height: 70vh !important;
+    border-radius: 20px !important;
+  }
+
+  /* Founders section — flex row to column, align left */
+  .overflow-hidden.bg-white section [style*="gap: 48px"][style*="display: flex"] {
+    flex-direction: column !important;
+    gap: 24px !important;
+    align-items: flex-start !important;
+  }
+  /* Founder image — full width */
+  [style*="width: 340"][style*="height: 400"] {
+    width: 100% !important;
+    height: 280px !important;
+  }
+
+  /* Missions/Values 2-col grid to 1-col */
+  [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Missions dark band padding */
+  .missions-valeurs-grid {
+    padding: 28px 20px !important;
+    border-radius: 16px !important;
+    gap: 24px !important;
+  }
+  [style*="padding: 64px 56px"] {
+    padding: 32px 20px !important;
+  }
+  /* Left/right padding in missions — remove border, stack cleanly */
+  .missions-valeurs-grid > div[style*="padding-right: 48"] {
+    padding-right: 0 !important;
+    border-right: none !important;
+    padding-bottom: 24px !important;
+    border-bottom: 1px solid rgba(255,255,255,0.08) !important;
+  }
+  .missions-valeurs-grid > div[style*="padding-left: 48"] {
+    padding-left: 0 !important;
+  }
+  [style*="padding-right: 48px"] {
+    padding-right: 0 !important;
+    border-right: none !important;
+  }
+  [style*="padding-left: 48px"] {
+    padding-left: 0 !important;
+  }
+
+  /* Stats flex row — 2x2 grid on mobile */
+  [style*="padding: 60px 0"] [style*="display: flex"][style*="justify-content: center"] {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 0 !important;
+  }
+  /* About stat numbers */
+  [style*="font-size: 48px"] {
+    font-size: 32px !important;
+  }
+  /* Each stat item — remove inner flex, add border styling */
+  [style*="padding: 60px 0"] [style*="display: flex"][style*="justify-content: center"] > div {
+    display: block !important;
+  }
+  /* Stat item padding — compact */
+  [style*="padding: 0px 48px"],
+  [style*="padding: 0 48px"] {
+    padding: 16px 12px !important;
+    text-align: center !important;
+  }
+  /* Stat dividers — hide on mobile */
+  [style*="padding: 60px 0"] [style*="width: 1px"][style*="height: 48px"] {
+    display: none !important;
+  }
+  /* Section padding — tighter */
+  [style*="padding: 60px 0"] {
+    padding: 32px 0 !important;
+  }
+
+  /* Timeline title */
+  [style*="font-size: 64px"] {
+    font-size: 30px !important;
+  }
+
+  /* About CTA — flex to column */
+  [style*="padding: 48px 48px"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    padding: 28px 20px !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+  [style*="padding: 48px"][style*="space-between"] {
+    flex-direction: column !important;
+    padding: 28px 20px !important;
+    gap: 20px !important;
+  }
+
+  /* About/FAQ CTA heading */
+  [style*="font-size: 32px"][style*="font-weight: 700"] {
+    font-size: 24px !important;
+  }
+
+  /* Section padding: "80px 0" */
+  [style*="padding: 80px 0"] {
+    padding: 40px 0 !important;
+  }
+
+  /* ---------- SOLUTIONS PAGES — HERO (Agricole, Photovoltaique, Industriel, OuvragesArt, About) ---------- */
+
+  /* All solution hero sections: side margin, reduce height, no extra padding */
+  section.relative.h-\[60vh\].rounded-3xl.max-w-7xl {
+    margin-left: 16px !important;
+    margin-right: 16px !important;
+    width: auto !important;
+    max-width: none !important;
+    height: 45vh !important;
+    border-radius: 20px !important;
+    margin-bottom: 32px !important;
+    padding: 0 !important;
+  }
+
+  /* Hero text — reduce size, tighter spacing */
+  section.relative.h-\[60vh\] h1.text-\[56px\] {
+    font-size: 28px !important;
+    line-height: 1.15 !important;
+    margin-bottom: 8px !important;
+  }
+
+  /* Hero subtitle */
+  section.relative.h-\[60vh\] p.text-\[18px\] {
+    font-size: 14px !important;
+  }
+
+  /* Hero inner text wrapper — add padding from edges */
+  section.relative.h-\[60vh\] .max-w-7xl.mx-auto.px-6 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* Hero text container — less top margin */
+  section.relative.h-\[60vh\] .mt-16 {
+    margin-top: 0 !important;
+  }
+
+  /* ---------- SOLUTIONS PAGE ---------- */
+
+  /* Advantages 3-col grid to 1-col */
+  [style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Advantages section padding */
+  [style*="padding: 96px 0"] {
+    padding: 40px 0 !important;
+  }
+
+  /* Advantage card padding */
+  [style*="padding: 32px 28px"] {
+    padding: 20px 16px !important;
+  }
+
+  /* Advantage numbers */
+  [style*="font-size: 48px"][style*="font-weight: 700"] {
+    font-size: 32px !important;
+  }
+
+  /* Solutions CTA */
+  [style*="padding: 80px 24px"] {
+    padding: 40px 16px !important;
+  }
+
+  /* ---------- IMPLANTATIONS & BUREAU-PRODUCTION PAGES ---------- */
+
+  /* Stats band padding */
+  [style*="padding: 48px 56px"] {
+    padding: 24px 16px !important;
+  }
+
+  /* Featured card 2-col grid */
+  [style*="padding: 48px 48px"][style*="grid-template-columns"] {
+    grid-template-columns: 1fr !important;
+    padding: 24px 16px !important;
+    gap: 24px !important;
+  }
+
+  /* Featured card padding override */
+  [style*="padding: 48px 48px"] {
+    padding: 24px 16px !important;
+  }
+
+  /* Bureau services 3-col grid */
+  [style*="1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Process 4-col grid */
+  [style*="repeat(4, 1fr)"],
+  [style*="1fr 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* Process dark section padding */
+  [style*="padding: 56px 48px"] {
+    padding: 28px 16px !important;
+  }
+
+  /* Bureau stat numbers */
+  [style*="font-size: 28px"][style*="font-weight: 700"] {
+    font-size: 22px !important;
+  }
+
+  /* ---------- FAQ PAGE ---------- */
+
+  /* FAQ 2-col grid to 1-col */
+  .pt-32.pb-20 [style*="grid-template-columns: 1fr 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  .pt-32.pb-20 [style*="1fr 1fr"][style*="gap: 48px"] {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+
+  /* FAQ hero title */
+  .pt-32.pb-20 h1[style*="font-size: 56px"] {
+    font-size: 30px !important;
+  }
+
+  /* FAQ CTA row to column */
+  .pt-32.pb-20 [style*="space-between"][style*="padding: 48px"] {
+    flex-direction: column !important;
+    padding: 28px 20px !important;
+    text-align: center !important;
+    gap: 20px !important;
+  }
+
+  /* ---------- CONTACT PAGE ---------- */
+
+  /* Map section */
+  [style*="padding: 40px 40px 0"] {
+    padding: 20px 16px 0 !important;
+  }
+  [style*="gap: 32px"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  [style*="height: 360"] {
+    height: 240px !important;
+  }
+  [style*="font-size: 28px"][style*="font-weight: 700"]:not([style*="color: #fff"]) {
+    font-size: 22px !important;
+  }
+
+  /* ---------- REALISATIONS PAGE ---------- */
+
+  /* Hero h1 fontSize: 72 */
+  .pt-32.pb-20 > section:first-child h1[style*="font-size: 72px"] {
+    font-size: 32px !important;
+  }
+
+  /* ---------- ACTUALITES PAGE ---------- */
+
+  /* Featured article title */
+  .text-\[42px\] {
+    font-size: 26px !important;
+  }
+
+  /* ---------- LEGAL PAGES ---------- */
+
+  /* MentionsLegales, PolitiqueConfidentialite, Cookies — h1 fontSize: 56 */
+  [style*="max-width: 800px"] h1[style*="font-size: 56px"] {
+    font-size: 28px !important;
+  }
+  /* Legal section gap */
+  [style*="max-width: 800px"] [style*="gap: 40px"] {
+    gap: 24px !important;
+  }
+
+  /* ---------- NAVIGATION — MOBILE MENU OVERLAY ---------- */
+
+  /* Nav language buttons in top bar — prevent overflow at 320px */
+  nav .flex.gap-3 {
+    gap: 4px;
+  }
+
+  /* ── Mobile menu full-screen overlay ── */
+  .fixed.inset-0.z-30 {
+    background: linear-gradient(165deg, #fff 0%, #F7F7F8 50%, #F0F0F2 100%) !important;
+  }
+
+  /* Inner container — left-align, better vertical rhythm */
+  .fixed.inset-0.z-30 > .flex.flex-col {
+    align-items: flex-start !important;
+    justify-content: flex-start !important;
+    padding: 100px 36px 40px !important;
+    gap: 0 !important;
+    overflow-y: auto;
+  }
+
+  /* ── Each nav item block ── */
+  .fixed.inset-0.z-30 > .flex.flex-col > .text-center {
+    text-align: left !important;
+    width: 100%;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  .fixed.inset-0.z-30 > .flex.flex-col > .text-center:last-of-type {
+    border-bottom: none;
+  }
+
+  /* ── Main nav links ── */
+  .fixed.inset-0.z-30 .text-\[20px\] {
+    font-size: 22px !important;
+    font-weight: 700 !important;
+    font-family: 'Rajdhani', sans-serif !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.02em !important;
+    color: #1A1A1A !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+  }
+
+  /* Red accent dot before each main link */
+  .fixed.inset-0.z-30 .text-\[20px\]::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: #E40714;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── Submenu items ── */
+  .fixed.inset-0.z-30 .mt-2.space-y-2 {
+    margin-top: 8px !important;
+    padding-left: 14px;
+    border-left: 2px solid #E40714;
+    margin-left: 2px;
+  }
+
+  .fixed.inset-0.z-30 .text-\[16px\] {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: rgba(27, 27, 27, 0.6) !important;
+    padding: 6px 0 !important;
+  }
+
+  /* ── Language buttons row ── */
+  .fixed.inset-0.z-30 .flex.gap-3.mt-4 {
+    margin-top: 28px !important;
+    padding-top: 24px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    width: 100%;
+    gap: 10px !important;
+    justify-content: flex-start;
+  }
+
+  /* Individual language button styling */
+  .fixed.inset-0.z-30 .flex.gap-3.mt-4 > button {
+    flex: 1;
+    justify-content: center;
+    padding: 12px 8px !important;
+    border-radius: 12px !important;
+    border-color: rgba(0, 0, 0, 0.08) !important;
+    background: #fff !important;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+  }
+
+  /* ---------- FOOTER ---------- */
+
+  /* Footer — overall padding */
+  footer {
+    padding: 40px 20px 24px !important;
+  }
+
+  /* Main grid — tighter gap */
+  footer .grid.gap-8 {
+    gap: 24px 16px;
+    margin-bottom: 32px !important;
+  }
+
+  /* Logo section — centered on mobile, visual separation */
+  footer .col-span-2 {
+    text-align: center;
+    padding-bottom: 24px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  /* Center the logo block */
+  footer .col-span-2 .mb-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Center description text */
+  footer .col-span-2 > p {
+    text-align: center;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Center social icons */
+  footer .col-span-2 > .flex.gap-3 {
+    justify-content: center;
+  }
+
+  /* Social icons — bigger touch target */
+  footer .col-span-2 .w-10.h-10 {
+    width: 44px !important;
+    height: 44px !important;
+  }
+
+  /* Section titles — red accent underline */
+  footer h4 {
+    font-size: 12px !important;
+    font-weight: 700 !important;
+    letter-spacing: 0.1em !important;
+    color: #1A1A1A !important;
+    padding-bottom: 10px;
+    margin-bottom: 12px !important;
+    border-bottom: 2px solid #E40714;
+    display: inline-block;
+  }
+
+  /* Link list — tighter spacing */
+  footer ul.space-y-2 {
+    gap: 0;
+  }
+  footer ul.space-y-2 li {
+    margin-bottom: 6px;
+  }
+
+  /* Links — slightly larger touch target */
+  footer ul a,
+  footer ul span {
+    font-size: 13px !important;
+    padding: 2px 0;
+    display: inline-block;
+  }
+
+  /* Divider — more visible */
+  footer .h-px {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.08) !important;
+    margin-bottom: 20px !important;
+  }
+
+  /* Bottom bar — stack and center */
+  footer .flex.flex-col {
+    align-items: center !important;
+    text-align: center;
+    gap: 16px !important;
+  }
+
+  /* Bottom links row — wrap nicely */
+  footer .flex.items-center.gap-6 {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px !important;
+  }
+
+  /* Copyright text */
+  footer .flex.flex-col > p {
+    font-size: 12px !important;
+    color: rgba(27, 27, 27, 0.5) !important;
+  }
+
+  /* Contact button in footer bottom */
+  footer .px-4.py-2.bg-\[\#E40714\] {
+    padding: 10px 24px !important;
+    border-radius: 10px !important;
+    font-weight: 600 !important;
+    font-size: 13px !important;
+  }
+
+  /* ---------- QUOTE BANNER ---------- */
+
+  /* Push up slightly to avoid mobile browser bottom bars */
+  [style*="position: fixed"][style*="bottom: 12px"] {
+    bottom: 16px !important;
+  }
+
+  /* ---------- GENERIC FIXES ---------- */
+
+  /* Any horizontal overflow caused by wide elements — exclude hero sections and breadcrumbs */
+  .max-w-7xl:not(.relative):not(section),
+  [style*="max-width: 1280"]:not(.breadcrumbs-nav) {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    overflow-x: hidden;
+  }
+
+  /* Prevent any horizontal scrollbar */
+  body {
+    overflow-x: hidden;
+  }
+
+  /* All section h2 with fontSize 42 (ContactSection, KeyStats, Process, GoogleReviews, Certifications) */
+  h2[style*="font-size: 42px"] {
+    font-size: 26px !important;
+  }
+
+  /* h2 with fontSize 64 (MapSection, BureauSection, ProjectsSection, Timeline) */
+  h2[style*="font-size: 64px"] {
+    font-size: 30px !important;
+  }
+
+  /* h1 with fontSize 72 (Solutions, Actualites, Realisations, Contact) */
+  h1[style*="font-size: 72px"] {
+    font-size: 32px !important;
+  }
+
+  /* h1 with fontSize 56 (FAQ, Implantations, Bureau, Mentions, Privacy, Cookies, About) */
+  h1[style*="font-size: 56px"] {
+    font-size: 28px !important;
+  }
+
+  /* All maxWidth 900 paragraphs (hero subtitles) */
+  [style*="max-width: 900px"] {
+    max-width: 100% !important;
+  }
+  [style*="max-width: 700px"] {
+    max-width: 100% !important;
+  }
+  [style*="max-width: 600px"] {
+    max-width: 100% !important;
+  }
+  [style*="max-width: 560px"] {
+    max-width: 100% !important;
+  }
+
+  /* Large marginBottom values */
+  [style*="margin-bottom: 80px"] {
+    margin-bottom: 36px !important;
+  }
+
+  /* Section inner padding 0 24px — tighten on very small screens */
+  [style*="padding: 0px 24px"],
+  [style*="padding: 0 24px"] {
+    padding: 0 16px !important;
+  }
+
+  /* ---------- SUBPAGES — GRIDS & LAYOUTS (v2) ---------- */
+
+  /* 6-col process timeline (IndustrielPage) → 2-col on mobile */
+  [style*="repeat(6, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px !important;
+  }
+
+  /* Dark band 2-col with vertical separator: 1fr 1px 1fr (Photovoltaique certs, OuvragesArt expertise) → single column */
+  [style*="1fr 1px 1fr"] {
+    grid-template-columns: 1fr !important;
+  }
+  /* Hide the vertical separator column in 1fr 1px 1fr grids */
+  [style*="1fr 1px 1fr"] > div[style*="background-color: rgba(255"] {
+    display: none !important;
+  }
+  /* Adjust left/right padding for items in stacked dark bands */
+  [style*="1fr 1px 1fr"] > div > div[style*="padding: 24px 32px 24px 0"],
+  [style*="1fr 1px 1fr"] > div [style*="padding: 24px 32px 24px 0"] {
+    padding-right: 0 !important;
+  }
+  [style*="1fr 1px 1fr"] > div > div[style*="padding: 24px 0 24px 32px"],
+  [style*="1fr 1px 1fr"] > div [style*="padding: 24px 0 24px 32px"] {
+    padding-left: 0 !important;
+  }
+
+  /* OuvragesArt stats — inline flex with separators (margin: 0 48px) */
+  [style*="margin: 0px 48px"],
+  [style*="margin: 0 48px"] {
+    margin: 0 16px !important;
+  }
+  /* Stats inline flex row → wrap on mobile */
+  [style*="display: flex"][style*="align-items: center"][style*="gap: 0"] {
+    flex-wrap: wrap !important;
+    gap: 20px !important;
+  }
+  /* OuvragesArt/Industriel stat value font size 42 */
+  [style*="font-size: 42px"][style*="font-weight: 700"][style*="color: #E40714"] {
+    font-size: 28px !important;
+  }
+
+  /* Industriel capacities band — flex row to column */
+  [style*="padding: 48px 56px"][style*="justify-content: space-between"] {
+    flex-direction: column !important;
+    gap: 20px !important;
+  }
+  /* Industriel capacities — hide separators */
+  [style*="padding: 48px 56px"] [style*="width: 1"][style*="height: 48"] {
+    display: none !important;
+  }
+
+  /* Industriel advantages dark band — reduce gap on 2-col (now 1-col via existing rule) */
+  [style*="gap: 0px 64px"],
+  [style*="gap: 0 64px"] {
+    gap: 0 !important;
+  }
+
+  /* Industriel CTA — buttons to column */
+  [style*="padding: 48px 48px"][style*="space-between"] [style*="display: flex"][style*="gap: 12"] {
+    flex-direction: column !important;
+    width: 100% !important;
+  }
+  [style*="padding: 48px 48px"][style*="space-between"] [style*="display: flex"][style*="gap: 12"] button,
+  [style*="padding: 48px 48px"][style*="space-between"] [style*="display: flex"][style*="gap: 12"] a {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+
+  /* ---------- SUSTAINABILITY SECTION ---------- */
+
+  /* CTA band — stack on mobile */
+  #engagements [style*="padding: 32px 36px"] {
+    padding: 24px 20px !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    text-align: left !important;
+  }
+  /* CTA band max-width on text */
+  #engagements [style*="max-width: 480"] {
+    max-width: 100% !important;
+  }
+
+  /* ---------- NEWS SECTION ---------- */
+
+  /* News article image — reduce height */
+  #actualites [style*="height: 280"] {
+    height: 180px !important;
+  }
+  /* News article content padding */
+  #actualites [style*="padding: 32px 32px 36px"] {
+    padding: 20px 16px 24px !important;
+  }
+  /* News article title */
+  #actualites h3[style*="font-size: 24"] {
+    font-size: 20px !important;
+  }
+
+  /* ---------- REALISATIONS SCROLLER ---------- */
+
+  /* Scroller cards — smaller on mobile */
+  .shrink-0[style*="width: 420"] {
+    width: 280px !important;
+    height: 200px !important;
+  }
+
+  /* ---------- PARTNERS SCROLLER ---------- */
+
+  /* Partner logos — smaller on mobile */
+  [style*="width: 180px"][style*="height: 60px"] {
+    width: 120px !important;
+    height: 40px !important;
+  }
+  /* Partners gradient fades — narrower on mobile */
+  .py-16.overflow-hidden .w-32 {
+    width: 48px !important;
+  }
+
+  /* ---------- COOKIE BANNER ---------- */
+
+  /* Cookie banner — edge to edge on mobile */
+  [style*="position: fixed"][style*="bottom: 24"][style*="left: 24"] {
+    left: 12px !important;
+    right: 12px !important;
+    bottom: 12px !important;
+  }
+  /* Cookie banner buttons — stack on very small screens */
+  [style*="max-width: 720"] [style*="flex-shrink: 0"][style*="margin-inline-start"] {
+    margin-inline-start: 0 !important;
+    width: 100% !important;
+  }
+  [style*="max-width: 720"] [style*="flex-shrink: 0"][style*="margin-inline-start"] button {
+    flex: 1 !important;
+    padding: 12px 16px !important;
+  }
+
+  /* ---------- BREADCRUMBS ---------- */
+
+  /* Breadcrumbs — position below fixed nav on mobile, absorb into page pt-32 */
+  .breadcrumbs-nav {
+    padding-top: 92px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+    padding-bottom: 0px !important;
+    margin-bottom: -112px !important;
+  }
+
+  /* ---------- AGRIPV SECTION (AgricolePage) ---------- */
+
+  /* AgriPV carousel image height */
+  .grid.lg\:grid-cols-2 > div[style*="height: 420"] {
+    height: 280px !important;
+  }
+
+  /* ---------- PHOTOVOLTAIQUE PAGE ---------- */
+
+  /* Split panel — auto height on mobile */
+  .grid.lg\:grid-cols-5[style*="height: 560"] {
+    height: auto !important;
+  }
+  /* Split panel buttons — reduce padding */
+  .grid.lg\:grid-cols-5 .px-10 {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  /* ---------- ARTICLE CONTENT (dangerouslySetInnerHTML) ---------- */
+
+  /* Prevent embedded content from overflowing */
+  .prose img,
+  .prose table,
+  .prose iframe,
+  .prose video,
+  [dangerouslySetInnerHTML] img,
+  article img,
+  article table,
+  article iframe {
+    max-width: 100% !important;
+    height: auto !important;
+  }
+  article table {
+    display: block !important;
+    overflow-x: auto !important;
+  }
+
+  /* ---------- SUBPAGES — REALISATIONS GRIDS ---------- */
+
+  /* Realisation project cards — reduce image height 220px */
+  [style*="height: 220"][style*="overflow: hidden"] {
+    height: 160px !important;
+  }
+
+  /* Realisation project cards — reduce image height 240px */
+  [style*="height: 240"][style*="overflow: hidden"] {
+    height: 180px !important;
+  }
+
+}
+
+/* ==========================================================================
+   TABLET — min-width: 768px AND max-width: 1024px
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* ---------- GLOBAL TYPOGRAPHY ---------- */
+
+  /* h1 fontSize 72 → 48 on tablet */
+  h1[style*="font-size: 72px"] {
+    font-size: 48px !important;
+  }
+
+  /* h1 fontSize 56 → 42 on tablet */
+  h1[style*="font-size: 56px"] {
+    font-size: 42px !important;
+  }
+
+  /* h2 fontSize 64 → 42 on tablet */
+  h2[style*="font-size: 64px"] {
+    font-size: 42px !important;
+  }
+
+  /* h2 fontSize 42 → 34 on tablet */
+  h2[style*="font-size: 42px"] {
+    font-size: 34px !important;
+  }
+
+  /* ---------- HOMEPAGE COMPONENTS ---------- */
+
+  /* #bureau image height */
+  #bureau [style*="height: 500"] {
+    height: 360px !important;
+  }
+
+  /* Bureau video modal — z-index + scroll on tablet */
+  #bureau .fixed.inset-0 {
+    z-index: 99999 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    overscroll-behavior: contain !important;
+  }
+  /* Close button — fixed in top-right corner */
+  #bureau .fixed.inset-0 > .relative.flex > button:has(svg) {
+    position: fixed !important;
+    top: 16px !important;
+    right: 16px !important;
+    z-index: 100000 !important;
+  }
+  #bureau:has(.fixed.inset-0) {
+    z-index: 99999 !important;
+    position: relative !important;
+  }
+  /* Bureau video modal — stack on tablet */
+  #bureau .fixed.inset-0 > .relative.flex {
+    flex-direction: column !important;
+    max-width: 600px !important;
+    width: 100% !important;
+    min-height: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+    border-radius: 16px !important;
+    margin: auto !important;
+  }
+  #bureau .fixed.inset-0 video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: 55vh !important;
+    object-fit: contain !important;
+  }
+  #bureau [style*="width: 300"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 24px 24px 28px !important;
+    overflow: visible !important;
+  }
+
+  /* #expertise card padding */
+  #expertise [style*="44px 48px 48px"] {
+    padding: 32px 28px 32px !important;
+  }
+  /* Expertise bullet grid: 2-col on tablet */
+  #expertise [style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  /* Expertise image height */
+  #expertise img[style*="height: 380"] {
+    height: 300px !important;
+  }
+
+  /* #realisations card heights */
+  #realisations [style*="height: 400"],
+  #realisations [style*="height: 350"],
+  #realisations [style*="height: 450"] {
+    height: 300px !important;
+  }
+
+  /* ---------- SECTIONS WITHOUT IDS ---------- */
+
+  /* Section padding: 96px → 64px */
+  section[style*="padding: 96px"] {
+    padding: 64px 0 !important;
+  }
+
+  /* Stat numbers */
+  [style*="font-size: 52px"] {
+    font-size: 42px !important;
+  }
+
+  /* Large margins */
+  [style*="margin-bottom: 80px"] {
+    margin-bottom: 48px !important;
+  }
+
+  /* Section padding: 80px → 56px */
+  [style*="padding: 80px 0"] {
+    padding: 56px 0 !important;
+  }
+
+  /* ---------- ABOUT PAGE ---------- */
+
+  /* Founders — reduce gap */
+  [style*="gap: 48px"][style*="display: flex"] {
+    gap: 32px !important;
+  }
+  /* Founder image */
+  [style*="width: 340"][style*="height: 400"] {
+    width: 280px !important;
+    height: 340px !important;
+  }
+
+  /* Missions padding */
+  [style*="padding: 64px 56px"] {
+    padding: 40px 32px !important;
+  }
+  [style*="padding-right: 48px"] {
+    padding-right: 32px !important;
+  }
+  [style*="padding-left: 48px"] {
+    padding-left: 32px !important;
+  }
+
+  /* About stat numbers */
+  [style*="font-size: 48px"] {
+    font-size: 40px !important;
+  }
+  [style*="padding: 0px 48px"],
+  [style*="padding: 0 48px"] {
+    padding: 0 32px !important;
+  }
+
+  /* CTA sections */
+  [style*="padding: 48px 48px"] {
+    padding: 36px 32px !important;
+  }
+
+  /* ---------- SOLUTIONS PAGE ---------- */
+
+  /* Advantages grid: 3-col → 2-col on tablet */
+  [style*="repeat(3, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* ---------- IMPLANTATIONS & BUREAU-PRODUCTION ---------- */
+
+  /* Stats band padding */
+  [style*="padding: 48px 56px"] {
+    padding: 36px 32px !important;
+  }
+
+  /* Process 4-col → 2-col */
+  [style*="repeat(4, 1fr)"],
+  [style*="1fr 1fr 1fr 1fr"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Bureau services 3-col → 2-col (keep 1 on bottom row) */
+  [style*="1fr 1fr 1fr"]:not([style*="1fr 1fr 1fr 1fr"]) {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* Process dark section */
+  [style*="padding: 56px 48px"] {
+    padding: 40px 32px !important;
+  }
+
+  /* ---------- FAQ PAGE ---------- */
+
+  /* FAQ grid gap */
+  [style*="1fr 1fr"][style*="gap: 48px"] {
+    gap: 32px !important;
+  }
+
+  /* ---------- CONTACT PAGE ---------- */
+
+  /* Map section padding */
+  [style*="padding: 40px 40px 0"] {
+    padding: 28px 28px 0 !important;
+  }
+
+  /* ---------- CERTIFICATIONS SECTION (TABLET) ---------- */
+
+  /* Second row (3 cards): wrap to 2+1 on tablet */
+  .flex.justify-center.gap-8.mt-8 {
+    flex-wrap: wrap !important;
+  }
+  .flex.justify-center.gap-8.mt-8 > div {
+    width: calc(50% - 16px) !important;
+  }
+
+  /* ---------- FEATURED ARTICLE (ACTUALITES) ---------- */
+
+  .text-\[42px\] {
+    font-size: 32px !important;
+  }
+
+  /* ---------- FOOTER (TABLET) ---------- */
+
+  /* Tighter footer padding */
+  footer {
+    padding: 48px 32px 24px !important;
+  }
+
+  /* Footer grid — 3-col layout with logo spanning full on tablet */
+  footer .grid.gap-8 {
+    gap: 28px 20px;
+  }
+
+  /* Logo section spans full width on tablet too (md:col-span-3) — center it */
+  footer .col-span-2 {
+    text-align: center;
+    padding-bottom: 20px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  }
+  footer .col-span-2 .mb-4 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  footer .col-span-2 > p {
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  footer .col-span-2 > .flex.gap-3 {
+    justify-content: center;
+  }
+
+  /* Section titles — red accent */
+  footer h4 {
+    padding-bottom: 8px;
+    margin-bottom: 12px !important;
+    border-bottom: 2px solid #E40714;
+    display: inline-block;
+  }
+
+  /* ---------- SUBPAGES — GRIDS & LAYOUTS (v2) ---------- */
+
+  /* 6-col process timeline (IndustrielPage) → 3-col on tablet */
+  [style*="repeat(6, 1fr)"] {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  /* Dark band 2-col with vertical separator: 1fr 1px 1fr — keep 2-col but reduce padding */
+  [style*="1fr 1px 1fr"] > div > div[style*="padding: 24px 32px 24px 0"],
+  [style*="1fr 1px 1fr"] > div [style*="padding: 24px 32px 24px 0"] {
+    padding-right: 16px !important;
+  }
+  [style*="1fr 1px 1fr"] > div > div[style*="padding: 24px 0 24px 32px"],
+  [style*="1fr 1px 1fr"] > div [style*="padding: 24px 0 24px 32px"] {
+    padding-left: 16px !important;
+  }
+
+  /* OuvragesArt stats — reduce separator margin */
+  [style*="margin: 0px 48px"],
+  [style*="margin: 0 48px"] {
+    margin: 0 24px !important;
+  }
+  /* OuvragesArt stat value font size */
+  [style*="font-size: 42px"][style*="font-weight: 700"][style*="color: #E40714"] {
+    font-size: 36px !important;
+  }
+
+  /* Industriel advantages dark band — reduce gap */
+  [style*="gap: 0px 64px"],
+  [style*="gap: 0 64px"] {
+    gap: 0 32px !important;
+  }
+
+  /* ---------- SUSTAINABILITY SECTION ---------- */
+
+  /* Sustainability commitment grid 4-col → 2-col */
+  #engagements [style*="repeat(4, 1fr)"] {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  /* CTA band — reduce padding */
+  #engagements [style*="padding: 32px 36px"] {
+    padding: 28px 28px !important;
+  }
+
+  /* ---------- NEWS SECTION ---------- */
+
+  /* News article image — reduce height */
+  #actualites [style*="height: 280"] {
+    height: 220px !important;
+  }
+  /* News article content padding */
+  #actualites [style*="padding: 32px 32px 36px"] {
+    padding: 24px 24px 28px !important;
+  }
+
+  /* ---------- REALISATIONS SCROLLER ---------- */
+
+  /* Scroller cards — slightly smaller on tablet */
+  .shrink-0[style*="width: 420"] {
+    width: 340px !important;
+    height: 240px !important;
+  }
+
+  /* ---------- PARTNERS SCROLLER ---------- */
+
+  /* Partner logos — slightly smaller on tablet */
+  [style*="width: 180px"][style*="height: 60px"] {
+    width: 150px !important;
+    height: 50px !important;
+  }
+
+  /* ---------- PHOTOVOLTAIQUE PAGE ---------- */
+
+  /* Split panel — reduce height on tablet */
+  .grid.lg\:grid-cols-5[style*="height: 560"] {
+    height: 450px !important;
+  }
+
+  /* ---------- AGRIPV SECTION ---------- */
+
+  /* AgriPV image — reduce height */
+  .grid.lg\:grid-cols-2 > div[style*="height: 420"] {
+    height: 340px !important;
+  }
+
+  /* ---------- ARTICLE CONTENT ---------- */
+
+  /* Prevent embedded content from overflowing */
+  article img,
+  article table,
+  article iframe {
+    max-width: 100% !important;
+  }
+
+  /* ---------- GENERIC ---------- */
+
+  /* Prevent horizontal overflow */
+  body {
+    overflow-x: hidden;
+  }
+}

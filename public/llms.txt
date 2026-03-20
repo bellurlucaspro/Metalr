@@ -1,0 +1,53 @@
+# METALR — Constructeur de structures metalliques
+
+> METALR concoit, fabrique et installe des structures metalliques sur mesure pour les secteurs agricole, photovoltaique, industriel et genie civil. Fonde en 2018, le groupe dispose de 8 usines de production en France, Roumanie, Kosovo, Tunisie, Guinee, Thailande, Emirats arabes unis et Cote d'Ivoire. Plus de 1000 projets livres, 250 MW installes. Certifie ISO 9001, EN 1090.
+
+## Informations cles
+
+- Siege social : 14 Rue Bernard Barot, ZAC Littes, 63111 Mur-sur-Allier, France
+- Telephone : 04 73 59 11 81
+- Email : contact@metalr.com
+- Site web : https://metalr.fr
+- Fondateurs : Mickael et Charlotte Rochefort
+- Annee de creation : 2018
+- Implantations : 8 pays (France, Roumanie, Kosovo, Tunisie, Guinee, Thailande, EAU, Cote d'Ivoire)
+- Capacite de production : 12 000 tonnes/an
+
+## Domaines d'expertise
+
+### Construction agricole
+Batiments d'elevage, stabulations metalliques, hangars de stockage agricole, structures AgriPV (agrivoltaisme). Conception sur mesure adaptee aux exploitations modernes.
+
+### Structures photovoltaiques
+Ombrieres de parking solaires, carports photovoltaiques, centrales au sol, toitures PV, trackers solaires. Solutions cle en main de la conception a la mise en service. 250 MW installes.
+
+### Batiments industriels
+Halls de production, entrepots logistiques, plateformes de stockage, mezzanines, extensions d'usines, renovation de batiments existants. Certifie EN 1090 EXC3.
+
+### Ouvrages d'art et genie civil
+Passerelles pietonnes et cyclables, ponts metalliques, tabliers, charpentes complexes, structures de genie civil, rehabilitation d'ouvrages. Classe d'execution EXC3, conformite eurocodes.
+
+## Certifications
+- ISO 9001:2015 — Management qualite
+- EN 1090-2 — Execution structures acier (classes EXC2/EXC3)
+- Marquage CE — Conformite europeenne
+- QualiPV — Installateur photovoltaique qualifie
+- OPQB — Qualification batiment
+- Assurance decennale
+
+## Processus
+Bureau d'etudes integre (CAO Tekla, Robot Structural, BIM) → Fabrication en usine (decoupe laser CNC, pliage robotise, soudage certifie, galvanisation) → Montage sur site → Controle qualite et livraison.
+
+## Pages principales
+- Accueil : https://metalr.fr/
+- Solutions : https://metalr.fr/solutions
+- Agricole : https://metalr.fr/solutions/agricole
+- Photovoltaique : https://metalr.fr/solutions/photovoltaique
+- Industriel : https://metalr.fr/solutions/industriel
+- Ouvrages d'art : https://metalr.fr/solutions/ouvrages-art
+- Bureau d'etudes & Production : https://metalr.fr/bureau-production
+- Realisations : https://metalr.fr/realisations
+- Implantations : https://metalr.fr/implantations
+- A propos : https://metalr.fr/a-propos
+- Contact : https://metalr.fr/contact
+- FAQ : https://metalr.fr/faq
