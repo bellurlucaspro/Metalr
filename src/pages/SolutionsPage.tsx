@@ -32,7 +32,7 @@ export default function SolutionsPage() {
       title: t("solutions.s3Title"),
       icon: Factory,
       description: t("solutions.s3Desc"),
-      image: "https://images.unsplash.com/photo-1543847036-8e67e0c526f4?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxpbmR1c3RyaWFsJTIwbWV0YWwlMjBidWlsZGluZ3xlbnwxfHx8fDE3Njg4MjAwMjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      image: "/images/batiment industriel 2.webp",
       link: "/solutions/industriel",
       features: [t("solutions.s3f1"), t("solutions.s3f2"), t("solutions.s3f3")],
     },
@@ -40,7 +40,7 @@ export default function SolutionsPage() {
       title: t("solutions.s4Title"),
       icon: Landmark,
       description: t("solutions.s4Desc"),
-      image: "/images/pexels-andres-villamizar-185552101-17392345.webp",
+      image: "/images/pontafriquesud.webp",
       link: "/solutions/ouvrages-art",
       features: [t("solutions.s4f1"), t("solutions.s4f2"), t("solutions.s4f3")],
     },
@@ -121,7 +121,7 @@ export default function SolutionsPage() {
                     <motion.img
                       src={solution.image}
                       alt={solution.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover brightness-110"
                       whileHover={{ scale: 1.1 }}
                       transition={{ duration: 0.6 }}
                     />

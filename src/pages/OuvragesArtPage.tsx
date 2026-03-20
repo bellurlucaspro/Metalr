@@ -4,7 +4,6 @@ import { useInView } from "motion/react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Landmark, ArrowRight, Download } from "lucide-react";
-import { generateOuvragesArtPDF } from "../lib/generateOuvragesArtPDF";
 import { useRealisations } from "../hooks/useRealisations";
 import { tField } from "../lib/i18n-helpers";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -76,7 +75,7 @@ export default function OuvragesArtPage() {
         {/* Hero */}
         <section className="relative h-[60vh] mb-20 overflow-hidden rounded-3xl max-w-7xl mx-auto">
           <img
-            src="/images/pexels-andres-villamizar-185552101-17392345.webp"
+            src="/images/pontafriquesud.webp"
             alt="Ouvrages d'art"
             className="w-full h-full object-cover"
             width={1200}
@@ -463,7 +462,7 @@ export default function OuvragesArtPage() {
               </motion.button>
             </Link>
               <motion.button
-                onClick={() => generateOuvragesArtPDF()}
+                onClick={() => { const a = document.createElement("a"); a.href = "/pdfs/METALR-Ouvrages-Art-Genie-Civil.pdf"; a.download = "METALR-Ouvrages-Art-Genie-Civil.pdf"; a.click(); }}
                 style={{
                   backgroundColor: "transparent",
                   color: "#FFFFFF",

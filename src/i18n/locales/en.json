@@ -24,6 +24,8 @@
     "ctaContact": "Contact us",
     "badgeEnergy": "Renewable energy",
     "badgeSolutions": "Photovoltaic solutions",
+    "badgeStruct": "Steel construction",
+    "badgeStructDesc": "Design and manufacturing of steel structures and infrastructures",
     "googleBadge": "Google Reviews"
   },
   "stats": {
@@ -136,9 +138,9 @@
       },
       "guinea": {
         "name": "Guinea",
-        "project": "Infrastructure & Industry",
-        "specialty": "Metal infrastructure & Industrial projects",
-        "description": "Metal infrastructure and industrial project construction adapted to West African climate."
+        "project": "Infrastructure, Industry & Engineering Office",
+        "specialty": "Metal infrastructure, Industrial projects & Engineering office",
+        "description": "Metal infrastructure, industrial project construction and integrated engineering office, adapted to West African climate."
       },
       "thailand": {
         "name": "Thailand",
@@ -740,6 +742,12 @@
     "ctaDesc": "Our expertise in agricultural buildings is at your service. Contact us to discuss your project.",
     "ctaContactBtn": "Contact us",
     "ctaDownloadBtn": "Download brochure"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist or has been moved. Please check the URL or go back to the homepage.",
+    "backHome": "Back to homepage",
+    "contact": "Contact us"
   },
   "footer": {
     "tagline1": "Metal structures",

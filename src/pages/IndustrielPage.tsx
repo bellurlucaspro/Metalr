@@ -4,7 +4,6 @@ import { useInView } from "motion/react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Factory, Building2, Wrench, TrendingUp, ArrowRight, Download } from "lucide-react";
-import { generateIndustrielPDF } from "../lib/generateIndustrielPDF";
 import { useRealisations } from "../hooks/useRealisations";
 import { tField } from "../lib/i18n-helpers";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -82,7 +81,7 @@ export default function IndustrielPage() {
         <img
           src="/images/IMG_0879.webp"
           alt="Industriel"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover brightness-110"
           width={1200}
           height={800}
           decoding="async"
@@ -482,7 +481,7 @@ export default function IndustrielPage() {
                 </motion.button>
               </Link>
               <motion.button
-                onClick={() => generateIndustrielPDF()}
+                onClick={() => { const a = document.createElement("a"); a.href = "/pdfs/METALR-Solutions-Industrielles.pdf"; a.download = "METALR-Solutions-Industrielles.pdf"; a.click(); }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 style={{

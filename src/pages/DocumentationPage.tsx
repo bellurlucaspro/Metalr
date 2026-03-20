@@ -2,19 +2,21 @@ import { motion } from "motion/react";
 import { useTranslation } from "react-i18next";
 import { Download, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { generateAgricolePDF } from "../lib/generateAgricolePDF";
-import { generatePhotovoltaiquePDF } from "../lib/generatePhotovoltaiquePDF";
-import { generateIndustrielPDF } from "../lib/generateIndustrielPDF";
-import { generateOuvragesArtPDF } from "../lib/generateOuvragesArtPDF";
-import { generateRSEPDF } from "../lib/generateRSEPDF";
 import SEOHead from "../components/SEOHead";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
+function downloadPDF(url: string) {
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = url.split("/").pop() || "document.pdf";
+  a.click();
+}
+
 interface DocItem {
   titleKey: string;
   descKey: string;
-  generate: () => void | Promise<void>;
+  generate: () => void;
   linkTo: string;
   icon: React.ReactNode;
 }
@@ -26,7 +28,7 @@ export default function DocumentationPage() {
     {
       titleKey: "documentation.agricoleTitle",
       descKey: "documentation.agricoleDesc",
-      generate: generateAgricolePDF,
+      generate: () => downloadPDF("/pdfs/METALR-Solutions-Agricoles.pdf"),
       linkTo: "/solutions/agricole",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -37,7 +39,7 @@ export default function DocumentationPage() {
     {
       titleKey: "documentation.photovoltaiqueTitle",
       descKey: "documentation.photovoltaiqueDesc",
-      generate: generatePhotovoltaiquePDF,
+      generate: () => downloadPDF("/pdfs/METALR-Solutions-Photovoltaiques.pdf"),
       linkTo: "/solutions/photovoltaique",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -49,7 +51,7 @@ export default function DocumentationPage() {
     {
       titleKey: "documentation.industrielTitle",
       descKey: "documentation.industrielDesc",
-      generate: generateIndustrielPDF,
+      generate: () => downloadPDF("/pdfs/METALR-Solutions-Industrielles.pdf"),
       linkTo: "/solutions/industriel",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -60,7 +62,7 @@ export default function DocumentationPage() {
     {
       titleKey: "documentation.ouvragesArtTitle",
       descKey: "documentation.ouvragesArtDesc",
-      generate: generateOuvragesArtPDF,
+      generate: () => downloadPDF("/pdfs/METALR-Ouvrages-Art-Genie-Civil.pdf"),
       linkTo: "/solutions/ouvrages-art",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
@@ -71,7 +73,7 @@ export default function DocumentationPage() {
     {
       titleKey: "documentation.rseTitle",
       descKey: "documentation.rseDesc",
-      generate: generateRSEPDF,
+      generate: () => downloadPDF("/pdfs/METALR-Rapport-RSE-2025.pdf"),
       linkTo: "/#engagements",
       icon: (
         <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

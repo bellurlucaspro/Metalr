@@ -7,7 +7,7 @@ export async function generateIndustrielPDF(): Promise<void> {
 
   const [hero, logo] = await Promise.all([
     loadHeroImage("/images/IMG_0879.webp"),
-    loadWhiteLogo("/images/MetalR_bonlogo.webp"),
+    loadWhiteLogo("/images/metalr-logo-header.webp"),
   ]);
 
   const L = createLayout(doc, TOTAL, "Solutions Industrielles", logo);
@@ -17,14 +17,14 @@ export async function generateIndustrielPDF(): Promise<void> {
   drawCover(
     hero,
     "SOLUTIONS INDUSTRIELLES",
-    "Batiments",
+    "Bâtiments",
     "Industriels",
-    "Halls de production, entrepots logistiques, mezzanines et structures sur mesure. Cle en main.",
+    "Halls de production, entrepôts logistiques, mezzanines et structures sur mesure. Clé en main.",
     [
       { value: "5 sites", label: "Europe & Afrique" },
-      { value: "50 000 T", label: "Capacite / an" },
+      { value: "50 000 T", label: "Capacité / an" },
       { value: "EN 1090", label: "Certification" },
-      { value: "98%", label: "Delais respectes" },
+      { value: "98%", label: "Délais respectés" },
     ]
   );
 
@@ -39,7 +39,7 @@ export async function generateIndustrielPDF(): Promise<void> {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(80, 80, 80);
   const intro = doc.splitTextToSize(
-    "METALR concoit, fabrique et installe des batiments industriels en charpente metallique. Halls de production, entrepots logistiques, mezzanines, batiments tertiaires — solutions cle en main de la conception a la livraison.",
+    "METALR conçoit, fabrique et installe des bâtiments industriels en charpente métallique. Halls de production, entrepôts logistiques, mezzanines, bâtiments tertiaires — solutions clé en main de la conception a la livraison.",
     CW
   );
   doc.text(intro, M, y);
@@ -48,21 +48,21 @@ export async function generateIndustrielPDF(): Promise<void> {
   // Stats
   y = statsRow([
     { value: "5 sites", label: "Europe & Afrique" },
-    { value: "50 000 T", label: "Capacite / an" },
+    { value: "50 000 T", label: "Capacité / an" },
     { value: "EN 1090", label: "Certification" },
-    { value: "98%", label: "Delais respectes" },
+    { value: "98%", label: "Délais respectés" },
   ], y);
 
   // Solutions
   y = sectionTitle("Nos solutions industrielles", y);
 
   const solutions = [
-    { title: "Halls industriels", desc: "Construction cle en main de halls de production, usines et ateliers. Grandes portees sans poteaux intermediaires pour une flexibilite maximale d'amenagement." },
-    { title: "Entrepots & logistique", desc: "Plateformes logistiques, centres de stockage et entrepots frigorifiques. Optimises pour la circulation des engins et le chargement." },
-    { title: "Renovation & extension", desc: "Modernisation de batiments existants, extensions de surface et mise aux normes. Intervention possible en site occupe." },
-    { title: "Mezzanines & plateformes", desc: "Structures interieures sur mesure pour doubler vos surfaces exploitables. Calcul de charges adapte a votre activite." },
-    { title: "Batiments tertiaires", desc: "Bureaux, showrooms et locaux commerciaux a ossature metallique. Rapidite de montage et liberte architecturale." },
-    { title: "Structures sur mesure", desc: "Passerelles, auvents, couvertures techniques et ouvrages speciaux. Chaque solution est pensee pour vous." },
+    { title: "Halls industriels", desc: "Construction clé en main de halls de production, usines et ateliers. Grandes portées sans poteaux intermédiaires pour une flexibilité maximale d'aménagement." },
+    { title: "Entrepôts & logistique", desc: "Plateformes logistiques, centres de stockage et entrepôts frigorifiques. Optimises pour la circulation des engins et le chargement." },
+    { title: "Rénovation & extension", desc: "Modernisation de bâtiments existants, extensions de surface et mise aux normes. Intervention possible en site occupe." },
+    { title: "Mezzanines & plateformes", desc: "Structures interieures sur mesure pour doubler vos surfaces exploitables. Calcul de charges adapte a votre activité." },
+    { title: "Bâtiments tertiaires", desc: "Bureaux, showrooms et locaux commerciaux a ossature métallique. Rapidite de montage et liberté architecturale." },
+    { title: "Structures sur mesure", desc: "Passerelles, auvents, couvertures techniques et ouvrages speciaux. Chaque solution est pensée pour vous." },
   ];
 
   solutions.forEach((s) => {
@@ -78,15 +78,15 @@ export async function generateIndustrielPDF(): Promise<void> {
   y = 24;
 
   // Processus
-  y = sectionTitle("Notre methode de travail", y);
+  y = sectionTitle("Notre méthode de travail", y);
 
   const process = [
-    { step: "Etude de faisabilite", desc: "Analyse du terrain, contraintes reglementaires, besoins fonctionnels. Estimation budgetaire." },
+    { step: "Étude de faisabilité", desc: "Analyse du terrain, contraintes réglementaires, besoins fonctionnels. Estimation budgétaire." },
     { step: "Conception sur mesure", desc: "Plans 3D Tekla Structures, calculs eurocodes (Robot Structural Analysis), optimisation des couts." },
-    { step: "Fabrication", desc: "Usines certifiees EN 1090 : decoupe laser CNC, pliage robotise, soudage, galvanisation." },
-    { step: "Livraison", desc: "Transport organise, logistique de chantier planifiee, conditionnement adapte." },
-    { step: "Montage", desc: "Assemblage par nos equipes specialisees, coordination avec les autres corps de metier." },
-    { step: "Reception", desc: "Controles finaux, PV de reception contradictoire, remise du dossier des ouvrages executes (DOE)." },
+    { step: "Fabrication", desc: "Usines certifiées EN 1090 : découpe laser CNC, pliage robotisé, soudage, galvanisation." },
+    { step: "Livraison", desc: "Transport organise, logistique de chantier planifiée, conditionnement adapte." },
+    { step: "Montage", desc: "Assemblage par nos equipes spécialisées, coordination avec les autres corps de métier." },
+    { step: "Reception", desc: "Contrôles finaux, PV de reception contradictoire, remise du dossier des ouvrages exécutés (DOE)." },
   ];
 
   const colW = (CW - 6) / 2;
@@ -118,9 +118,9 @@ export async function generateIndustrielPDF(): Promise<void> {
   y = sectionTitle("Normes et certifications", y);
 
   const certs = [
-    { title: "EN 1090 — Classe EXC3", desc: "Certification de fabrication pour les structures les plus exigeantes. Tracabilite complete de chaque piece." },
-    { title: "ISO 9001 — Management qualite", desc: "Systeme qualite certifie couvrant conception, fabrication, livraison et montage. Audits reguliers." },
-    { title: "Marquage CE & Eurocodes", desc: "Conformite directives europeennes EN 1993 / EN 1991. Declarations de performance fournies." },
+    { title: "EN 1090 — Classe EXC3", desc: "Certification de fabrication pour les structures les plus exigeantes. Traçabilité complete de chaque pièce." },
+    { title: "ISO 9001 — Management qualite", desc: "Systeme qualite certifié couvrant conception, fabrication, livraison et montage. Audits réguliers." },
+    { title: "Marquage CE & Eurocodes", desc: "Conformité directives européennes EN 1993 / EN 1991. Déclarations de performance fournies." },
   ];
 
   certs.forEach((c) => {
@@ -142,7 +142,7 @@ export async function generateIndustrielPDF(): Promise<void> {
   y += 4;
   ctaBlock(
     "Un projet industriel ?",
-    "Discutons de votre construction ou renovation industrielle. Etude personnalisee et devis gratuit.",
+    "Discutons de votre construction ou rénovation industrielle. Étude personnalisée et devis gratuit.",
     y
   );
 

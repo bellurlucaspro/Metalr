@@ -4,7 +4,6 @@ import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Sun, TreeDeciduous, Factory as FactoryIcon, ParkingCircle, RotateCw, ArrowRight, Download } from "lucide-react";
-import { generatePhotovoltaiquePDF } from "../lib/generatePhotovoltaiquePDF";
 import { useRealisations } from "../hooks/useRealisations";
 import { tField } from "../lib/i18n-helpers";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
@@ -755,7 +754,7 @@ export default function PhotovoltaiquePage() {
               </motion.button>
             </Link>
             <motion.button
-              onClick={() => generatePhotovoltaiquePDF()}
+              onClick={() => { const a = document.createElement("a"); a.href = "/pdfs/METALR-Solutions-Photovoltaiques.pdf"; a.download = "METALR-Solutions-Photovoltaiques.pdf"; a.click(); }}
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               style={{

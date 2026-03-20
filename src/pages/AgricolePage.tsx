@@ -9,7 +9,6 @@ import { tField } from "../lib/i18n-helpers";
 import { ImageWithFallback } from "../components/figma/ImageWithFallback";
 import SEOHead from "../components/SEOHead";
 import { MiniFAQ } from "../components/MiniFAQ";
-import { generateAgricolePDF } from "../lib/generateAgricolePDF";
 
 export default function AgricolePage() {
   const { t, i18n } = useTranslation();
@@ -635,27 +634,6 @@ export default function AgricolePage() {
             </p>
           </div>
           <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }}>
-            <motion.button
-              onClick={() => generateAgricolePDF()}
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: 10,
-                backgroundColor: "transparent",
-                color: "#fff",
-                border: "1px solid rgba(255,255,255,0.2)",
-                borderRadius: 12,
-                padding: "16px 24px",
-                fontSize: 15,
-                fontWeight: 600,
-                cursor: "pointer",
-              }}
-            >
-              <Download size={16} />
-              {t("agricole.dlBtn")}
-            </motion.button>
             <Link to="/contact">
               <motion.button
                 whileHover={{ scale: 1.02 }}
@@ -680,6 +658,27 @@ export default function AgricolePage() {
                 </svg>
               </motion.button>
             </Link>
+            <motion.button
+              onClick={() => { const a = document.createElement("a"); a.href = "/pdfs/METALR-Solutions-Agricoles.pdf"; a.download = "METALR-Solutions-Agricoles.pdf"; a.click(); }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: 10,
+                backgroundColor: "transparent",
+                color: "#fff",
+                border: "1px solid rgba(255,255,255,0.2)",
+                borderRadius: 12,
+                padding: "16px 24px",
+                fontSize: 15,
+                fontWeight: 600,
+                cursor: "pointer",
+              }}
+            >
+              <Download size={16} />
+              {t("agricole.dlBtn")}
+            </motion.button>
           </div>
         </motion.div>
       </section>

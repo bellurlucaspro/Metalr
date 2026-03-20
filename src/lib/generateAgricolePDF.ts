@@ -7,7 +7,7 @@ export async function generateAgricolePDF(): Promise<void> {
 
   const [hero, logo] = await Promise.all([
     loadHeroImage("/images/DEE59EC1-2254-49AC-9F23-A0A1BCB6D5A0.webp"),
-    loadWhiteLogo("/images/MetalR_bonlogo.webp"),
+    loadWhiteLogo("/images/metalr-logo-header.webp"),
   ]);
 
   const L = createLayout(doc, TOTAL, "Solutions Agricoles", logo);
@@ -19,9 +19,9 @@ export async function generateAgricolePDF(): Promise<void> {
     "SOLUTIONS AGRICOLES",
     "Secteur",
     "Agricole",
-    "Batiments metalliques sur mesure : stabulations, hangars de stockage, elevage et agrivoltaique.",
+    "Bâtiments métalliques sur mesure : stabulations, hangars de stockage, élevage et agrivoltaique.",
     [
-      { value: "+300", label: "Batiments livres" },
+      { value: "+300", label: "Bâtiments livrés" },
       { value: "5", label: "Sites de prod." },
       { value: "25 ans", label: "Garantie struct." },
       { value: "280+", label: "Experts" },
@@ -39,7 +39,7 @@ export async function generateAgricolePDF(): Promise<void> {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(80, 80, 80);
   const intro = doc.splitTextToSize(
-    "Des structures metalliques robustes et adaptees aux exigences de l'agriculture moderne. MetalR concoit, fabrique et installe des batiments agricoles sur mesure — stabulations, hangars de stockage, batiments d'elevage et structures agrivoltaiques.",
+    "Des structures métalliques robustes et adaptées aux exigences de l'agriculture moderne. MetalR conçoit, fabrique et installe des bâtiments agricoles sur mesure — stabulations, hangars de stockage, bâtiments d'élevage et structures agrivoltaiques.",
     CW
   );
   doc.text(intro, M, y);
@@ -47,27 +47,27 @@ export async function generateAgricolePDF(): Promise<void> {
 
   // Stats boxes
   y = statsRow([
-    { value: "+300", label: "Batiments livres" },
+    { value: "+300", label: "Bâtiments livrés" },
     { value: "5", label: "Sites de prod." },
     { value: "25 ans", label: "Garantie struct." },
     { value: "280+", label: "Experts" },
   ], y);
 
   // Types de bâtiments
-  y = sectionTitle("Nos types de batiments", y);
+  y = sectionTitle("Nos types de bâtiments", y);
 
   const buildings = [
     {
-      title: "Batiments d'elevage",
-      desc: "Stabulations libres, poulaillers, bergeries et structures adaptees a tous types d'elevage. Conception optimisee pour le bien-etre animal et la ventilation naturelle.",
+      title: "Bâtiments d'élevage",
+      desc: "Stabulations libres, poulaillers, bergeries et structures adaptées a tous types d'élevage. Conception optimisee pour le bien-etre animal et la ventilation naturelle.",
     },
     {
       title: "Stockage agricole",
-      desc: "Hangars de stockage pour cereales, materiel agricole et fourrage. Grandes portees sans poteaux intermediaires pour une utilisation maximale de l'espace.",
+      desc: "Hangars de stockage pour céréales, materiel agricole et fourrage. Grandes portées sans poteaux intermédiaires pour une utilisation maximale de l'espace.",
     },
     {
       title: "Structures polyvalentes",
-      desc: "Batiments modulables et evolutifs selon vos besoins d'exploitation. Possibilite d'extension et d'adaptation dans le temps.",
+      desc: "Bâtiments modulables et évolutifs selon vos besoins d'exploitation. Possibilite d'extension et d'adaptation dans le temps.",
     },
   ];
 
@@ -82,7 +82,7 @@ export async function generateAgricolePDF(): Promise<void> {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(80, 80, 80);
   const agripvIntro = doc.splitTextToSize(
-    "Combinez production agricole et energie solaire avec nos structures photovoltaiques adaptees au monde agricole.",
+    "Combinez production agricole et énergie solaire avec nos structures photovoltaïques adaptées au monde agricole.",
     CW
   );
   doc.text(agripvIntro, M, y);
@@ -90,9 +90,9 @@ export async function generateAgricolePDF(): Promise<void> {
 
   const agripvPoints = [
     "Protection des cultures et des animaux",
-    "Revenu complementaire garanti",
+    "Revenu complémentaire garanti",
     "Optimisation de l'espace disponible",
-    "Solutions cle en main avec accompagnement",
+    "Solutions clé en main avec accompagnement",
   ];
 
   const colW2 = (CW - 6) / 2;
@@ -118,15 +118,15 @@ export async function generateAgricolePDF(): Promise<void> {
   y = 24;
 
   // Bénéfices
-  y = sectionTitle("Benefices pour les exploitants", y);
+  y = sectionTitle("Bénéfices pour les exploitants", y);
 
   const benefits = [
-    "Structures robustes et durables pour les conditions agricoles severes",
+    "Structures robustes et durables pour les conditions agricoles sévères",
     "Ventilation optimale pour le bien-etre animal et la conservation",
-    "Conception sur mesure adaptee a votre exploitation",
+    "Conception sur mesure adaptée a votre exploitation",
     "Respect des normes environnementales et sanitaires",
     "Installation rapide avec minimum d'interruption",
-    "Maintenance reduite grace a la qualite des materiaux",
+    "Maintenance réduite grace a la qualite des matériaux",
   ];
 
   const bHalf = (CW - 6) / 2;
@@ -154,9 +154,9 @@ export async function generateAgricolePDF(): Promise<void> {
   y = sectionTitle("Normes et certifications", y);
 
   const certs = [
-    { title: "Marquage CE & Eurocodes", desc: "Conformite aux directives europeennes, calculs selon EN 1993 et EN 1991. Declarations de performance (DoP) fournies pour chaque ouvrage." },
-    { title: "ISO 9001 & EN 1090", desc: "Management qualite certifie, classe d'execution EXC2/EXC3. Tracabilite complete de chaque piece, du laminoir au chantier." },
-    { title: "Garantie structure 25 ans", desc: "Garantie decennale sur le gros oeuvre. Dimensionnement pour charges climatiques severes (neige, vent, seisme)." },
+    { title: "Marquage CE & Eurocodes", desc: "Conformité aux directives européennes, calculs selon EN 1993 et EN 1991. Déclarations de performance (DoP) fournies pour chaque ouvrage." },
+    { title: "ISO 9001 & EN 1090", desc: "Management qualite certifie, classe d'exécution EXC2/EXC3. Traçabilité complete de chaque pièce, du laminoir au chantier." },
+    { title: "Garantie structure 25 ans", desc: "Garantie décennale sur le gros oeuvre. Dimensionnement pour charges climatiques sévères (neige, vent, séisme)." },
   ];
 
   certs.forEach((c) => {
@@ -178,7 +178,7 @@ export async function generateAgricolePDF(): Promise<void> {
   y += 4;
   ctaBlock(
     "Un projet agricole ?",
-    "Nos experts conçoivent votre batiment sur mesure. Contactez-nous pour une etude de faisabilite gratuite.",
+    "Nos experts conçoivent votre bâtiment sur mesure. Contactez-nous pour une étude de faisabilité gratuite.",
     y
   );
 

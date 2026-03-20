@@ -14,7 +14,7 @@ const EXPERTISES = [
   { key: "agricultural", image: "/images/20250728_111723.webp",                    objectPosition: "center 40%" },
   { key: "photovoltaic", image: "/images/panneau3.webp",                             objectPosition: "center 50%" },
   { key: "industrial",   image: "/images/batiment industriel 2.webp",                objectPosition: "center 25%" },
-  { key: "civil",        image: "/images/train.webp",                                objectPosition: "center 50%" },
+  { key: "civil",        image: "/images/pontafriquesud3.webp",                       objectPosition: "center 50%" },
 ];
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];

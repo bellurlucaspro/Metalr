@@ -46,11 +46,11 @@ export default function BureauProductionPage() {
   ];
 
   const usines = [
-    { name: t("bureauProduction.countryFrance"), location: "Mur-sur-Allier", capacity: "15,000", highlight: true },
-    { name: t("bureauProduction.countryRomania"), location: t("bureauProduction.cityBucharest"), capacity: "12,000", highlight: false },
-    { name: t("bureauProduction.countryKosovo"), location: "Pristina", capacity: "10,000", highlight: false },
-    { name: t("bureauProduction.countryTunisia"), location: t("bureauProduction.cityTunis"), capacity: "8,000", highlight: false },
-    { name: t("bureauProduction.countryGuinea"), location: t("bureauProduction.cityConakry"), capacity: "5,000", highlight: false },
+    { name: t("bureauProduction.countryFrance"), location: "Mur-sur-Allier", capacity: "4,000", highlight: true },
+    { name: t("bureauProduction.countryRomania"), location: t("bureauProduction.cityBucharest"), capacity: "3,000", highlight: false },
+    { name: t("bureauProduction.countryKosovo"), location: "Pristina", capacity: "2,500", highlight: false },
+    { name: t("bureauProduction.countryTunisia"), location: t("bureauProduction.cityTunis"), capacity: "1,500", highlight: false },
+    { name: t("bureauProduction.countryGuinea"), location: t("bureauProduction.cityConakry"), capacity: "1,000", highlight: false },
   ];
 
   const processSteps = [
@@ -64,7 +64,6 @@ export default function BureauProductionPage() {
     { value: "5", label: t("bureauProduction.factoriesTitle").replace("Nos ", "").replace("Our ", "") },
     { value: t("bureauProduction.totalCapacity"), label: t("bureauProduction.capacityLabel") },
     { value: "EN 1090", label: "Certification" },
-    { value: "98%", label: t("industriel.cap4Title") || "Délais respectés" },
   ];
 
   return (
@@ -234,16 +233,9 @@ export default function BureauProductionPage() {
             <div style={{ display: "flex", gap: 40 }}>
               <div>
                 <div style={{ fontSize: 28, fontWeight: 700, color: "#E40714", fontFamily: "'Rajdhani', sans-serif", lineHeight: 1.2 }}>
-                  15,000
+                  4,000
                 </div>
                 <p style={{ fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 6 }}>{t("bureauProduction.tonnesYear")}</p>
-              </div>
-              <div style={{ width: 1, height: 48, backgroundColor: "rgba(255,255,255,0.1)" }} />
-              <div>
-                <div style={{ fontSize: 28, fontWeight: 700, color: "#fff", fontFamily: "'Rajdhani', sans-serif", lineHeight: 1.2 }}>
-                  120
-                </div>
-                <p style={{ fontSize: 11, fontWeight: 600, color: "rgba(255,255,255,0.35)", textTransform: "uppercase", letterSpacing: "0.08em", marginTop: 6 }}>{t("implantations.employees")}</p>
               </div>
               <div style={{ width: 1, height: 48, backgroundColor: "rgba(255,255,255,0.1)" }} />
               <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>

@@ -32,6 +32,7 @@ const PolitiqueConfidentialitePage = lazy(() => import("./pages/PolitiqueConfide
 const CookiesPage = lazy(() => import("./pages/CookiesPage"));
 const AdminDashboard = lazy(() => import("./pages/admin/AdminDashboard"));
 const AdminLoginPage = lazy(() => import("./pages/admin/AdminLoginPage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage"));
 
 function ScrollToTop() {
   const location = useLocation();
@@ -108,6 +109,7 @@ export default function App() {
               <Route path="/cookies" element={<CookiesPage />} />
               <Route path="/admin/login" element={<AdminLoginPage />} />
               <Route path="/admin" element={<ProtectedRoute><AdminDashboard /></ProtectedRoute>} />
+              <Route path="*" element={<NotFoundPage />} />
             </Routes>
             </Suspense>
             </ErrorBoundary>

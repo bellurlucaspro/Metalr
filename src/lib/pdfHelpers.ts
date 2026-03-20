@@ -69,10 +69,10 @@ export function createLayout(
   const W = 210, H = 297, M = 20, CW = W - M * 2;
 
   // Shared logo dimensions
-  const LH_HDR  = 8;  // logo height in header/footer
-  const LW_HDR  = LH_HDR * (logoWhite.base64 ? logoWhite.ar : 4);
-  const LH_CVR  = 9;  // logo height on cover header
-  const LW_CVR  = LH_CVR * (logoWhite.base64 ? logoWhite.ar : 4);
+  const LH_HDR  = 10;  // logo height in header/footer
+  const LW_HDR  = LH_HDR * 1.57;  // cropped logo ratio ~15.7mm wide
+  const LH_CVR  = 12;  // logo height on cover header
+  const LW_CVR  = LH_CVR * 1.57;
 
   /** Draw the dark header band (cover or content pages) */
   function _drawBand(y: number, h: number, logoH: number, logoW: number, rightLabel: string) {
@@ -100,9 +100,9 @@ export function createLayout(
       doc.setLineWidth(0.4);
       doc.line(W - 68, y + 4, W - 68, y + h - 4);
       doc.setTextColor(190, 190, 190);
-      doc.setFontSize(7);
+      doc.setFontSize(9);
       doc.setFont("helvetica", "normal");
-      doc.text(rightLabel, W - 11, y + h / 2 + 2.5, { align: "right" });
+      doc.text(rightLabel, W - 11, y + h / 2 + 1, { align: "right" });
     }
   }
 

@@ -6,11 +6,11 @@ export async function generateOuvragesArtPDF(): Promise<void> {
   const TOTAL = 3;
 
   const [hero, logo] = await Promise.all([
-    loadHeroImage("/images/pexels-andres-villamizar-185552101-17392345.webp"),
-    loadWhiteLogo("/images/MetalR_bonlogo.webp"),
+    loadHeroImage("/images/pontafriquesud.webp"),
+    loadWhiteLogo("/images/metalr-logo-header.webp"),
   ]);
 
-  const L = createLayout(doc, TOTAL, "Ouvrages d'art & Genie civil", logo);
+  const L = createLayout(doc, TOTAL, "Ouvrages d'art & Génie civil", logo);
   const { W, H, M, CW, drawCover, drawHeader, drawFooter, sectionTitle, statsRow, featureCard, ctaBlock } = L;
 
   // ── PAGE 1 — COVER ──────────────────────────────────────────────────────────
@@ -18,12 +18,12 @@ export async function generateOuvragesArtPDF(): Promise<void> {
     hero,
     "OUVRAGES D'ART & GENIE CIVIL",
     "Ouvrages d'Art",
-    "& Genie Civil",
-    "Ponts, passerelles, charpentes complexes et infrastructures metalliques d'exception. France & international.",
+    "& Génie Civil",
+    "Ponts, passerelles, charpentes complexes et infrastructures métalliques d'exception. France & international.",
     [
-      { value: "120+", label: "Ouvrages livres" },
-      { value: "45 m", label: "Portee max" },
-      { value: "EXC3", label: "Classe d'exec." },
+      { value: "120+", label: "Ouvrages livrés" },
+      { value: "45 m", label: "Portée max" },
+      { value: "EXC3", label: "Classe d'exéc." },
       { value: "100%", label: "Eurocodes" },
     ]
   );
@@ -39,7 +39,7 @@ export async function generateOuvragesArtPDF(): Promise<void> {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(80, 80, 80);
   const intro = doc.splitTextToSize(
-    "Des structures metalliques d'exception pour les projets les plus exigeants : ponts, passerelles, charpentes complexes et infrastructures de genie civil. METALR concoit, fabrique et installe des ouvrages techniques en France et a l'international.",
+    "Des structures métalliques d'exception pour les projets les plus exigeants : ponts, passerelles, charpentes complexes et infrastructures de génie civil. METALR conçoit, fabrique et installe des ouvrages techniques en France et a l'international.",
     CW
   );
   doc.text(intro, M, y);
@@ -47,9 +47,9 @@ export async function generateOuvragesArtPDF(): Promise<void> {
 
   // Stats
   y = statsRow([
-    { value: "120+", label: "Ouvrages livres" },
-    { value: "45 m", label: "Portee max" },
-    { value: "EXC3", label: "Classe d'exec." },
+    { value: "120+", label: "Ouvrages livrés" },
+    { value: "45 m", label: "Portée max" },
+    { value: "EXC3", label: "Classe d'exéc." },
     { value: "100%", label: "Eurocodes" },
   ], y);
 
@@ -57,12 +57,12 @@ export async function generateOuvragesArtPDF(): Promise<void> {
   y = sectionTitle("Nos domaines d'intervention", y);
 
   const typologies = [
-    { title: "Passerelles pietonnes et cyclables", desc: "Conception et realisation de passerelles urbaines, franchissements de voies ferrees et ouvrages legers. Design contemporain et integration paysagere soignee." },
-    { title: "Ponts et tabliers metalliques", desc: "Tabliers de ponts routiers, ponts-rails et ouvrages de franchissement. Assemblage boulonne ou soude selon les contraintes du site." },
-    { title: "Charpentes complexes", desc: "Structures de grande portee pour equipements publics, gares et batiments emblematiques. Geometries courbes et assemblages sur mesure." },
-    { title: "Structures de genie civil", desc: "Portiques autoroutiers, mats, pylones. Resistance aux charges dynamiques et conditions climatiques extremes." },
-    { title: "Escaliers & garde-corps", desc: "Escaliers monumentaux, garde-corps architecturaux pour ouvrages publics. Finitions soignees, conformite normes PMR." },
-    { title: "Rehabilitation d'ouvrages", desc: "Diagnostic, renforcement et remise en etat d'ouvrages metalliques existants. Prolongation de duree de vie et mise aux normes sismiques." },
+    { title: "Passerelles piétonnes et cyclables", desc: "Conception et realisation de passerelles urbaines, franchissements de voies ferrées et ouvrages legers. Design contemporain et integration paysagère soignee." },
+    { title: "Ponts et tabliers métalliques", desc: "Tabliers de ponts routiers, ponts-rails et ouvrages de franchissement. Assemblage boulonne ou soude selon les contraintes du site." },
+    { title: "Charpentes complexes", desc: "Structures de grande portée pour équipements publics, gares et bâtiments emblematiques. Geometries courbes et assemblages sur mesure." },
+    { title: "Structures de génie civil", desc: "Portiques autoroutiers, mats, pylones. Résistance aux charges dynamiques et conditions climatiques extrêmes." },
+    { title: "Escaliers & garde-corps", desc: "Escaliers monumentaux, garde-corps architecturaux pour ouvrages publics. Finitions soignees, conformité normes PMR." },
+    { title: "Réhabilitation d'ouvrages", desc: "Diagnostic, renforcement et remise en état d'ouvrages métalliques existants. Prolongation de durée de vie et mise aux normes sismiques." },
   ];
 
   typologies.forEach((t) => {
@@ -81,12 +81,12 @@ export async function generateOuvragesArtPDF(): Promise<void> {
   y = sectionTitle("Expertise de notre bureau d'etudes", y);
 
   const expertise = [
-    { step: "Calcul de structures complexes", desc: "Modelisation 3D par elements finis, analyse non-lineaire et verification aux etats limites (Robot Structural Analysis + Tekla Structures)." },
-    { step: "Etudes sismiques & dynamiques", desc: "Calculs parasismiques, etudes de fatigue, analyse des vibrations. Conformite EN 1998." },
-    { step: "Optimisation des materiaux", desc: "Choix des nuances d'acier (S235, S355, S460), dimensionnement optimise, reduction du poids propre." },
-    { step: "Respect des eurocodes", desc: "Conformite totale EN 1993 (structures acier), EN 1090 (execution) et reglementations nationales." },
-    { step: "Suivi de chantier dedie", desc: "Ingenieur referent du lancement a la reception, coordination avec les entreprises de genie civil et VRD." },
-    { step: "Controle qualite EXC3", desc: "Controles a chaque etape : soudure (ressuage, magnetoscopie), geometrie, assemblage. Certification EN 1090 EXC3." },
+    { step: "Calcul de structures complexes", desc: "Modélisation 3D par elements finis, analyse non-lineaire et verification aux états limites (Robot Structural Analysis + Tekla Structures)." },
+    { step: "Etudes sismiques & dynamiques", desc: "Calculs parasismiques, etudes de fatigue, analyse des vibrations. Conformité EN 1998." },
+    { step: "Optimisation des matériaux", desc: "Choix des nuances d'acier (S235, S355, S460), dimensionnement optimise, réduction du poids propre." },
+    { step: "Respect des eurocodes", desc: "Conformité totale EN 1993 (structures acier), EN 1090 (exécution) et réglementations nationales." },
+    { step: "Suivi de chantier dédié", desc: "Ingénieur référent du lancement a la reception, coordination avec les entreprises de génie civil et VRD." },
+    { step: "Contrôle qualite EXC3", desc: "Contrôles a chaque étape : soudure (ressuage, magnétoscopie), géométrie, assemblage. Certification EN 1090 EXC3." },
   ];
 
   const colW = (CW - 6) / 2;
@@ -118,9 +118,9 @@ export async function generateOuvragesArtPDF(): Promise<void> {
   y = sectionTitle("Normes et certifications", y);
 
   const certs = [
-    { title: "EN 1090 — Classe EXC3", desc: "Certification fabrication pour ouvrages metalliques les plus exigeants. Tracabilite complete, piece par piece." },
-    { title: "Qualification de soudage", desc: "Soudeurs qualifies EN ISO 9606, QMOS selon EN ISO 15614. Controles non destructifs systematiques." },
-    { title: "ISO 9001 & Marquage CE", desc: "Systeme qualite certifie, conformite directives europeennes. Declarations de performance fournies pour chaque ouvrage." },
+    { title: "EN 1090 — Classe EXC3", desc: "Certification fabrication pour ouvrages métalliques les plus exigeants. Traçabilité complete, pièce par pièce." },
+    { title: "Qualification de soudage", desc: "Soudeurs qualifiés EN ISO 9606, QMOS selon EN ISO 15614. Contrôles non destructifs systématiques." },
+    { title: "ISO 9001 & Marquage CE", desc: "Systeme qualite certifie, conformité directives européennes. Déclarations de performance fournies pour chaque ouvrage." },
   ];
 
   certs.forEach((c) => {
@@ -142,11 +142,11 @@ export async function generateOuvragesArtPDF(): Promise<void> {
   y += 4;
   ctaBlock(
     "Un projet d'ouvrage d'art ?",
-    "Nos ingenieurs etudient la faisabilite de votre projet. Contactez-nous pour une etude technique gratuite.",
+    "Nos ingénieurs etudient la faisabilité de votre projet. Contactez-nous pour une étude technique gratuite.",
     y
   );
 
   drawFooter(3);
 
-  doc.save("METALR-Ouvrages-Art-Genie-Civil.pdf");
+  doc.save("METALR-Ouvrages-Art-Génie-Civil.pdf");
 }

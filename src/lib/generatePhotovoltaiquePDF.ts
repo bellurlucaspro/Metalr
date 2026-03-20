@@ -7,10 +7,10 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
 
   const [hero, logo] = await Promise.all([
     loadHeroImage("/images/panneau3.webp"),
-    loadWhiteLogo("/images/MetalR_bonlogo.webp"),
+    loadWhiteLogo("/images/metalr-logo-header.webp"),
   ]);
 
-  const L = createLayout(doc, TOTAL, "Solutions Photovoltaiques", logo);
+  const L = createLayout(doc, TOTAL, "Solutions Photovoltaïques", logo);
   const { W, H, M, CW, drawCover, drawHeader, drawFooter, sectionTitle, statsRow, featureCard, ctaBlock } = L;
 
   // ── PAGE 1 — COVER ──────────────────────────────────────────────────────────
@@ -18,12 +18,12 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
     hero,
     "SOLUTIONS PHOTOVOLTAIQUES",
     "Solutions",
-    "Photovoltaiques",
-    "Structures metalliques pour ombrières, centrales au sol, toitures PV et trackers solaires. Cle en main.",
+    "Photovoltaïques",
+    "Structures métalliques pour ombrières, centrales au sol, toitures PV et trackers solaires. Clé en main.",
     [
-      { value: "250 MW", label: "Puissance installee" },
+      { value: "250 MW", label: "Puissance installée" },
       { value: "+500", label: "Projets PV" },
-      { value: "98%", label: "Delais respectes" },
+      { value: "98%", label: "Délais respectés" },
       { value: "25 ans", label: "Garantie struct." },
     ]
   );
@@ -39,7 +39,7 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
   doc.setFont("helvetica", "normal");
   doc.setTextColor(80, 80, 80);
   const intro = doc.splitTextToSize(
-    "METALR concoit, fabrique et installe des structures metalliques pour installations photovoltaiques. Ombrieres de parking, centrales au sol, toitures PV et trackers solaires — solutions cle en main de la conception a l'exploitation.",
+    "METALR conçoit, fabrique et installe des structures métalliques pour installations photovoltaïques. Ombrières de parking, centrales au sol, toitures PV et trackers solaires — solutions clé en main de la conception a l'exploitation.",
     CW
   );
   doc.text(intro, M, y);
@@ -47,9 +47,9 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
 
   // Stats
   y = statsRow([
-    { value: "250 MW", label: "Puissance installee" },
+    { value: "250 MW", label: "Puissance installée" },
     { value: "+500", label: "Projets PV" },
-    { value: "98%", label: "Delais respectes" },
+    { value: "98%", label: "Délais respectés" },
     { value: "25 ans", label: "Garantie struct." },
   ], y);
 
@@ -58,16 +58,16 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
 
   const projects = [
     {
-      title: "Ombrieres photovoltaiques",
-      desc: "Parkings solaires pour collectivites et entreprises. Protection des vehicules et production d'energie simultanee. Conformite loi Climat & Resilience pour parkings +1500 m2.",
+      title: "Ombrières photovoltaïques",
+      desc: "Parkings solaires pour collectivites et entreprises. Protection des vehicules et production d'énergie simultanee. Conformité loi Climat & Resilience pour parkings +1500 m2.",
     },
     {
       title: "Centrales au sol",
-      desc: "Parcs solaires de grande envergure sur terrains degrades ou non agricoles. Structures fixes ou a inclinaison variable. Puissances de 1 a 50 MWc.",
+      desc: "Parcs solaires de grande envergure sur terrains dégradés ou non agricoles. Structures fixes ou a inclinaison variable. Puissances de 1 a 50 MWc.",
     },
     {
-      title: "Toitures photovoltaiques",
-      desc: "Equipement de batiments industriels, commerciaux et agricoles. Integration en surimposition ou en substitution de couverture. Etude de surcharge incluse.",
+      title: "Toitures photovoltaïques",
+      desc: "Équipement de bâtiments industriels, commerciaux et agricoles. Integration en surimposition ou en substitution de couverture. Étude de surcharge incluse.",
     },
     {
       title: "Trackers solaires",
@@ -88,15 +88,15 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
   y = 24;
 
   // Processus
-  y = sectionTitle("Notre processus photovoltaique", y);
+  y = sectionTitle("Notre processus photovoltaïque", y);
 
   const process = [
-    { step: "Etude de faisabilite", desc: "Analyse technique du site (ensoleillement, ombrage), etude financiere et verification reglementaire." },
-    { step: "Conception & ingenierie", desc: "Dimensionnement selon charges climatiques locales, modelisation 3D, plans d'execution." },
-    { step: "Fabrication", desc: "Production EN 1090 : decoupe laser CNC, pliage robotise, galvanisation. Controle qualite a chaque etape." },
-    { step: "Installation & raccordement", desc: "Montage par nos equipes qualifiees, cablage et raccordement au reseau ENEDIS." },
-    { step: "Mise en service", desc: "Tests electriques, conformite Consuel, parametrage onduleur, formation de l'exploitant." },
-    { step: "Maintenance", desc: "Contrats preventifs et curatifs, supervision a distance, interventions rapides." },
+    { step: "Étude de faisabilité", desc: "Analyse technique du site (ensoleillement, ombrage), étude financiere et verification réglementaire." },
+    { step: "Conception & ingénierie", desc: "Dimensionnement selon charges climatiques locales, modélisation 3D, plans d'exécution." },
+    { step: "Fabrication", desc: "Production EN 1090 : découpe laser CNC, pliage robotisé, galvanisation. Contrôle qualite a chaque étape." },
+    { step: "Installation & raccordement", desc: "Montage par nos equipes qualifiées, câblage et raccordement au réseau ENEDIS." },
+    { step: "Mise en service", desc: "Tests électriques, conformité Consuel, parametrage onduleur, formation de l'exploitant." },
+    { step: "Maintenance", desc: "Contrats préventifs et curatifs, supervision a distance, interventions rapides." },
   ];
 
   const colW = (CW - 6) / 2;
@@ -128,9 +128,9 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
   y = sectionTitle("Normes et certifications", y);
 
   const certs = [
-    { title: "Marquage CE & EN 1090", desc: "Conformite aux directives europeennes. Declarations de performance (DoP) fournies pour chaque ouvrage." },
-    { title: "ISO 9001", desc: "Management qualite certifie couvrant conception, fabrication, livraison et montage." },
-    { title: "Garantie structure 25 ans", desc: "Garantie decennale sur le gros oeuvre et performance energetique sur 25 ans." },
+    { title: "Marquage CE & EN 1090", desc: "Conformité aux directives européennes. Déclarations de performance (DoP) fournies pour chaque ouvrage." },
+    { title: "ISO 9001", desc: "Management qualite certifié couvrant conception, fabrication, livraison et montage." },
+    { title: "Garantie structure 25 ans", desc: "Garantie décennale sur le gros oeuvre et performance énergétique sur 25 ans." },
   ];
 
   certs.forEach((c) => {
@@ -151,12 +151,12 @@ export async function generatePhotovoltaiquePDF(): Promise<void> {
 
   y += 4;
   ctaBlock(
-    "Projet photovoltaique ?",
-    "Nos experts vous accompagnent dans votre transition energetique. Etude de faisabilite gratuite.",
+    "Projet photovoltaïque ?",
+    "Nos experts vous accompagnent dans votre transition énergétique. Étude de faisabilité gratuite.",
     y
   );
 
   drawFooter(3);
 
-  doc.save("METALR-Solutions-Photovoltaiques.pdf");
+  doc.save("METALR-Solutions-Photovoltaïques.pdf");
 }

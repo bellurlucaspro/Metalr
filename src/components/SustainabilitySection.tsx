@@ -1,7 +1,6 @@
 import { motion, useInView } from "motion/react";
 import { useRef } from "react";
 import { useTranslation } from "react-i18next";
-import { generateRSEPDF } from "../lib/generateRSEPDF";
 
 const EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
@@ -163,7 +162,7 @@ export function SustainabilitySection() {
             </p>
           </div>
           <motion.button
-            onClick={() => generateRSEPDF()}
+            onClick={() => { const a = document.createElement("a"); a.href = "/pdfs/METALR-Rapport-RSE-2025.pdf"; a.download = "METALR-Rapport-RSE-2025.pdf"; a.click(); }}
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             style={{

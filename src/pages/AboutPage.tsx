@@ -157,6 +157,7 @@ function HeroAbout({ heroRef, heroInView, t }: { heroRef: React.RefObject<HTMLEl
             width: "100%",
             height: "100%",
             objectFit: "cover",
+            objectPosition: "center 30%",
           }}
           animate={{ opacity: i === slide ? 1 : 0, scale: i === slide ? 1 : 1.08 }}
           transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
@@ -345,7 +346,7 @@ export default function AboutPage() {
     { year: "2020", title: t("about.t3Title"), description: t("about.t3Desc"), image: "/images/usine Kosovo.webp" },
     { year: "2021", title: t("about.t4Title"), description: t("about.t4Desc"), image: "/images/IMG_1069.webp" },
     { year: "2022", title: t("about.t5Title"), description: t("about.t5Desc"), image: "/images/usine tunisie.webp" },
-    { year: "2023", title: t("about.t6Title"), description: t("about.t6Desc") },
+    { year: "2023", title: t("about.t6Title"), description: t("about.t6Desc"), image: "/images/certif.webp" },
     { year: "2024", title: t("about.t7Title"), description: t("about.t7Desc"), image: "/images/usine france.webp" },
     { year: "2025", title: t("about.t8Title"), description: t("about.t8Desc"), image: "/images/ATT00527-1920w.webp" },
   ];
@@ -489,7 +490,7 @@ export default function AboutPage() {
                           <img
                             src={item.image ?? "/images/MetalR_bonlogo.webp"}
                             alt={item.image ? item.title : "METALR"}
-                            className={item.image ? "w-full h-full object-cover" : "max-h-full w-auto object-contain p-6"}
+                            className={item.image?.includes("certif") ? "w-full h-full object-contain p-4" : item.image ? "w-full h-full object-cover" : "max-h-full w-auto object-contain p-6"}
                             width={600}
                             height={256}
                             decoding="async"

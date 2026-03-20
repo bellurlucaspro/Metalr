@@ -195,6 +195,15 @@ export function Footer() {
           </div>
         </div>
 
+        <div className="h-px bg-gradient-to-r from-transparent via-[#C6C6C6]/50 to-transparent mt-6 mb-4" />
+
+        <p className="text-center text-[12px] text-[#1B1B1B]/40">
+          Site réalisé par{" "}
+          <a href="https://otika.fr/" target="_blank" rel="noopener noreferrer" className="hover:text-[#E40714] transition-colors">
+            Otika Agence Digitale
+          </a>
+        </p>
+
       </div>
     </footer>
   );

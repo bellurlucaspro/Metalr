@@ -24,6 +24,8 @@
     "ctaContact": "联系我们",
     "badgeEnergy": "可再生能源",
     "badgeSolutions": "光伏解决方案",
+    "badgeStruct": "金属建筑",
+    "badgeStructDesc": "钢结构与基础设施的设计与制造",
     "googleBadge": "Google 评价"
   },
   "stats": {
@@ -136,9 +138,9 @@
       },
       "guinea": {
         "name": "几内亚",
-        "project": "基础设施与工业",
-        "specialty": "金属基础设施与工业项目",
-        "description": "适应西非热带气候的金属基础设施和工业项目建设。"
+        "project": "基础设施、工业与设计院",
+        "specialty": "金属基础设施、工业项目与设计院",
+        "description": "金属基础设施、工业项目建设和内部设计院，适应西非热带气候。"
       },
       "thailand": {
         "name": "泰国",
@@ -740,6 +742,12 @@
     "ctaDesc": "我们在农业建筑方面的专业知识随时为您服务。联系我们讨论您的项目。",
     "ctaContactBtn": "联系我们",
     "ctaDownloadBtn": "下载宣传册"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "您访问的页面不存在或已被移动。请检查网址或返回首页。",
+    "backHome": "返回首页",
+    "contact": "联系我们"
   },
   "footer": {
     "tagline1": "金属结构",

@@ -24,6 +24,8 @@
     "ctaContact": "Nous contacter",
     "badgeEnergy": "Énergie renouvelable",
     "badgeSolutions": "Solutions photovoltaïques",
+    "badgeStruct": "Construction métallique",
+    "badgeStructDesc": "Conception et fabrication de structures et infrastructures métalliques",
     "googleBadge": "Avis Google"
   },
   "stats": {
@@ -136,9 +138,9 @@
       },
       "guinea": {
         "name": "Guinée",
-        "project": "Infrastructure & Industrie",
-        "specialty": "Infrastructure métallique & Projets industriels",
-        "description": "Infrastructure métallique et construction de projets industriels adaptés au climat tropical ouest-africain."
+        "project": "Infrastructure, Industrie & Bureau d'études",
+        "specialty": "Infrastructure métallique, Projets industriels & Bureau d'études",
+        "description": "Infrastructure métallique, construction de projets industriels et bureau d'études intégré, adaptés au climat tropical ouest-africain."
       },
       "thailand": {
         "name": "Thaïlande",
@@ -740,6 +742,12 @@
     "ctaDesc": "Notre expertise en bâtiments agricoles est à votre service. Contactez-nous pour discuter de votre projet.",
     "ctaContactBtn": "Nous contacter",
     "ctaDownloadBtn": "Télécharger la brochure"
+  },
+  "notFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée. Vérifiez l'URL ou retournez à l'accueil.",
+    "backHome": "Retour à l'accueil",
+    "contact": "Nous contacter"
   },
   "footer": {
     "tagline1": "Structures métalliques",

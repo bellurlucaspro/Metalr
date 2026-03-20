@@ -1,14 +1,44 @@
-import { motion } from "motion/react";
-import { useRef } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import { useRef, useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
 const VP = { once: true, amount: 0.2 };
 const DUR = 0.7;
 const STG = 0.12;
 
+const BADGE_ITEMS = [
+  {
+    titleKey: "hero.badgeEnergy",
+    subtitleKey: "hero.badgeSolutions",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2">
+        <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+      </svg>
+    ),
+  },
+  {
+    titleKey: "hero.badgeStruct",
+    subtitleKey: "hero.badgeStructDesc",
+    icon: (
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 20h20M5 20V8l7-5 7 5v12" />
+        <path d="M9 20v-4h6v4" />
+      </svg>
+    ),
+  },
+];
+
 export function HeroSection() {
   const { t } = useTranslation();
   const ref = useRef(null);
+  const [badgeIndex, setBadgeIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setBadgeIndex((i) => (i + 1) % BADGE_ITEMS.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
 
   const solarImages = [
     "/images/pontafriquesud3.webp",
@@ -132,7 +162,7 @@ export function HeroSection() {
                 viewport={VP}
                 transition={{ duration: 1, delay: 0.4 }}
               >
-                <div className="absolute inset-0 bg-gradient-to-t from-[#212121]/30 via-transparent to-transparent z-10" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#212121]/10 via-transparent to-transparent z-10" />
                 <img
                   src="/images/IMG_1447.webp"
                   alt="Panneaux solaires"
@@ -145,7 +175,7 @@ export function HeroSection() {
 
                 {/* Overlay text on image */}
                 <motion.div
-                  className="absolute bottom-8 left-8 right-8 z-20"
+                  className="absolute bottom-8 left-8 right-8 z-[5]"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={VP}
@@ -153,21 +183,43 @@ export function HeroSection() {
                 >
                   <div className="bg-white/90 backdrop-blur-md rounded-2xl p-6 border-2 border-white/40">
                     <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-[#E40714] rounded-xl flex items-center justify-center">
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          stroke="white"
-                          strokeWidth="2"
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={`icon-${badgeIndex}`}
+                          className="w-12 h-12 bg-[#E40714] rounded-xl flex items-center justify-center"
+                          initial={{ scale: 0.5, opacity: 0 }}
+                          animate={{ scale: 1, opacity: 1 }}
+                          exit={{ scale: 0.5, opacity: 0 }}
+                          transition={{ duration: 0.3 }}
                         >
-                          <path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
-                        </svg>
-                      </div>
+                          {BADGE_ITEMS[badgeIndex].icon}
+                        </motion.div>
+                      </AnimatePresence>
                       <div>
-                        <div className="text-[#212121] text-[14px]">{t("hero.badgeEnergy")}</div>
-                        <div className="text-[#E40714] text-[12px]">{t("hero.badgeSolutions")}</div>
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={`title-${badgeIndex}`}
+                            className="text-[#212121] text-[14px]"
+                            initial={{ opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -6 }}
+                            transition={{ duration: 0.3 }}
+                          >
+                            {t(BADGE_ITEMS[badgeIndex].titleKey)}
+                          </motion.div>
+                        </AnimatePresence>
+                        <AnimatePresence mode="wait">
+                          <motion.div
+                            key={`sub-${badgeIndex}`}
+                            className="text-[#E40714] text-[12px]"
+                            initial={{ opacity: 0, y: 6 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -6 }}
+                            transition={{ duration: 0.3, delay: 0.05 }}
+                          >
+                            {t(BADGE_ITEMS[badgeIndex].subtitleKey)}
+                          </motion.div>
+                        </AnimatePresence>
                       </div>
                     </div>
                   </div>
