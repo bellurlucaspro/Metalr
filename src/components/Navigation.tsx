@@ -245,9 +245,9 @@ export function Navigation() {
         </div>
 
         {/* ═══ Mobile navbar (inchangée) ═════════════════ */}
-        <div className="lg:hidden flex items-center justify-between bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl px-4 py-3 border border-[#C6C6C6]">
+        <div className="lg:hidden flex items-center justify-between bg-white/95 backdrop-blur-xl rounded-2xl shadow-xl px-4 py-2 border border-[#C6C6C6]" style={{ height: 56 }}>
           <Link to="/" className="flex items-center">
-            <Logo className="h-20" />
+            <img src="/images/MetalR_bonlogo.webp" alt="METALR" style={{ height: 64, width: "auto", objectFit: "contain" }} />
           </Link>
           <motion.button
             className="text-[#1B1B1B] p-2"

@@ -46,10 +46,7 @@ export function HeroSection() {
                 viewport={VP}
                 transition={{ duration: DUR, delay: STG * 0 }}
               >
-                <span className="inline-flex items-center gap-2 bg-[#E40714]/10 border border-[#E40714]/20 text-[#E40714] font-bold text-[13px] uppercase tracking-wider rounded-full px-4 py-2">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
-                  </svg>
+                <span className="inline-flex items-center bg-[#E40714]/10 border border-[#E40714]/20 text-[#E40714] font-bold text-[13px] uppercase tracking-wider rounded-full px-4 py-2">
                   {t("hero.badge")}
                 </span>
               </motion.div>

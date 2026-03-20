@@ -29,7 +29,7 @@ export function Footer() {
       title: t("footer.resources"),
       links: [
         { label: t("footer.projects"), href: "/realisations" },
-        { label: t("footer.news"), href: "/#actualites" },
+        { label: t("footer.news"), href: "/actualites" },
         { label: t("footer.documentation"), href: "/documentation" },
         { label: t("footer.faq"), href: "/faq" },
       ],

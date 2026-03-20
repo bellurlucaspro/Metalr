@@ -285,8 +285,8 @@ export function BureauSection() {
             initial={{ opacity: 0, scale: 0.94, y: 16 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
-            className="relative flex rounded-2xl overflow-hidden"
-            style={{ maxHeight: "88vh", boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}
+            className="relative flex flex-col md:flex-row rounded-2xl overflow-hidden w-full max-w-4xl"
+            style={{ maxHeight: "90vh", boxShadow: "0 32px 80px rgba(0,0,0,0.6)" }}
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close */}
@@ -300,32 +300,33 @@ export function BureauSection() {
               <X size={15} color="white" />
             </button>
 
-            {/* Video — portrait */}
-            <div style={{ background: "#000", flexShrink: 0 }}>
+            {/* Video */}
+            <div style={{ background: "#000", flexShrink: 0, display: "flex", justifyContent: "center" }} className="w-full md:w-auto">
               <video
                 src="/images/WhatsApp Video 2026-02-04 at 19.18.47.mp4"
                 controls
                 autoPlay
                 playsInline
-                style={{ height: "min(82vh, 620px)", width: "auto", display: "block" }}
+                className="w-full md:w-auto"
+                style={{ maxHeight: "60vh", display: "block", objectFit: "contain" }}
               />
             </div>
 
-            {/* Info panel — right */}
+            {/* Info panel — below on mobile, right on desktop */}
             <div
-              className="flex flex-col justify-between"
-              style={{ width: 300, padding: "36px 28px", background: "#151515", flexShrink: 0 }}
+              className="flex flex-col justify-between w-full md:w-[300px]"
+              style={{ padding: "24px 20px", background: "#151515", flexShrink: 0 }}
             >
               {/* Logo + titre */}
               <div>
                 <img
                   src="/images/MetalR_bonlogo.webp"
                   alt="METALR"
-                  width={100}
-                  height={28}
+                  width={120}
+                  height={40}
                   loading="lazy"
                   decoding="async"
-                  style={{ height: 28, marginBottom: 28, filter: "brightness(0) invert(1)" }}
+                  style={{ height: 105, width: "auto", marginBottom: 24, filter: "brightness(0) invert(1)" }}
                 />
                 <div style={{ width: 28, height: 2, background: "#E40714", borderRadius: 1, marginBottom: 18 }} />
                 <h3 style={{ color: "#fff", fontSize: 20, fontWeight: 700, lineHeight: 1.35, marginBottom: 12, letterSpacing: "-0.01em" }}>
